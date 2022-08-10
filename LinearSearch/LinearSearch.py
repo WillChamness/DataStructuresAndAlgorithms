@@ -30,8 +30,8 @@ def main():
     print(linear_search(l2, 1000))
     print(linear_search(l1, 7, "a"))
     print(linear_search(l2, 5, "a"))
-    print(linear_search(l2, 1000))
-    print(linear_search([], 10000))
+    print(linear_search(l2, 1000, "a"))
+    print(linear_search([], 10000, "a"))
 
 
 
