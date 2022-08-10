@@ -4,6 +4,7 @@ def binary_search(sorted_list, target, choice="recursive"):
     else:
         return __binary_search__(sorted_list, target)
 
+
 def __binary_search__(l, target):
     lo = 0
     hi = len(l) - 1
@@ -19,6 +20,7 @@ def __binary_search__(l, target):
     
     return -1
 
+
 def __binary_search_rec__(l, target, lo, hi):
     if lo > hi:
         return -1
@@ -31,8 +33,6 @@ def __binary_search_rec__(l, target, lo, hi):
     else:
         return __binary_search_rec__(l, target, mid + 1, hi)
     
-    return -1
-
 
         
 
