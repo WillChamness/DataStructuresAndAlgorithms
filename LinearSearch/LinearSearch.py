@@ -6,7 +6,7 @@ def linear_search(li, target, choice="recursive"):
 
 
 def __linear_search__(li, target):
-    for i in range(len(li) - 1):
+    for i in range(len(li)):
         if li[i] == target:
             return i
     return -1
@@ -24,7 +24,6 @@ def __linear_search_rec__(li, target, index):
 def main():
     l1 = [1,2,3,4,5,6,7,8,9]
     l2 = [1,2,3,4,5,6,7,8,9,10]
-    print(linear_search(l1, 7))
     print(linear_search(l2, 5))
     print(linear_search([], 1000))
     print(linear_search(l2, 1000))
