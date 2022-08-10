@@ -16,6 +16,8 @@ def __binary_search__(l, target):
             hi = mid - 1
         else:
             lo = mid + 1
+    
+    return -1
 
 def __binary_search_rec__(l, target, lo, hi):
     if lo > hi:
@@ -37,11 +39,11 @@ def __binary_search_rec__(l, target, lo, hi):
 def main():
     list1 = [1,2,3,4,5,6,7,8,9]
     list2 = [1,2,3,4,5,6,7,8,9,10]
-    print(binary_search(list1, 3))
-    print(binary_search(list1, 9))
-    print(binary_search(list2, 3))
-    print(binary_search(list2, 9))
-    print(binary_search([], 10))
+    print(binary_search(list1, 3, "a"))
+    print(binary_search(list1, 9, "a"))
+    print(binary_search(list2, 3, "a"))
+    print(binary_search(list2, 9, "a"))
+    print(binary_search([], 10, "a"))
 
 
 if __name__ == "__main__":
