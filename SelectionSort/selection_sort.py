@@ -11,7 +11,7 @@ def selection_sort(li):
     Example: 
     Given [3, 2, 1, 4, 0].
 
-    Start at the beginning. Consider the sublist from index 0 to 4: [3, 1, 2, 4, 0]. Find the index
+    Start at the beginning. Consider the sublist from index 0 to 4: [3, 2, 1, 4, 0]. Find the index
     of the minimum item in this sublist: 4. Then swap items at index 0 with index 4. Now you have 
     [0. 2. 1. 4. 3]. Reflect this in the original list: [0, 2, 1, 4, 3].
 
@@ -42,7 +42,7 @@ def selection_sort(li):
     for i in range(len(li)): # consider the sublist from index i to len(li) - 1
         min_index = i # initially assume the minimum is at index i
         for j in range(i, len(li)): # check all items to the right of i for the smallest item
-            if li[j] < li[min_index]: # update the minimum index as necessary
+            if li[j] < li[min_index]: # update the minimum index when you find a smaller item
                 min_index = j
         swap(li, i, min_index)
 
