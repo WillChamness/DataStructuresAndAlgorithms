@@ -5,7 +5,7 @@ class Stack:
     accessed first.
 
     Time complexity of searching: O(n).
-    Time complexity of inserting: O(1).
+    Time complexity of inserting/removing: O(1).
 
     Strategy: 
     Last in, first out (LIFO). The last element to be inserted
