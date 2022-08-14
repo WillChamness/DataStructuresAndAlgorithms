@@ -14,7 +14,6 @@ class Stack:
     into the stack, and decrease it when an object is released (popped)
     from the stack.
 
-    Note: 
     You can also use a linked list to represent a stack, where the top of 
     the stack is represented by the head of the LL.
     """
@@ -51,7 +50,7 @@ class Stack:
         stack. Return s[top - 1] and decrement top.
         """
         if self.is_empty():
-            return None
+            raise Exception("Stack is empty")
 
         self.top = self.top - 1
         return self.s[self.top]
@@ -86,7 +85,7 @@ class Stack:
 def main():
     string = "abcdefg"
     print("Before: " + string)
-    s = Stack(len(string))
+    s = Stack()
     for i in range(len(string)):
         s.push(string[i])
     
@@ -96,15 +95,23 @@ def main():
 
     print("After: " + result)
 
-    print("\nPeeking at the top of a set of consecutive numebrs:")
-    s = Stack()
-    for i in range(s.size):
-        s.push(i)
-    print(s.peek()) # should print 9
-    print(s.peek()) # should print 9
+    string = "0123456789"
+    print("\nBefore: " + string)
+
+    for c in string:
+        s.push(c)
+    
+    result = ""
+    while s.peek() is not None:
+        result += s.pop()
+    
+    print("After: " + result)
+
 
     print("\nThis will cause an exception:")
-    s.push(10)
+    s = Stack(1)
+    s.push(1)
+    s.push(2)
 
 if __name__ == "__main__":
     main()
