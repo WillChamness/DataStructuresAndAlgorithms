@@ -14,7 +14,7 @@ class QueueList:
     if the queue is full or empty since abs(head - tail) could 
     represent either a full queue or an empty queue.
 
-    You can also use a doubly linked list to represent a stack, where
+    You can also use a doubly linked list to represent a queue, where
     the head of the queue is represented by the head of the LL and the
     tail of the queue is represented by the tail of the LL.
 
