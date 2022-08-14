@@ -104,7 +104,7 @@ def main():
         q.enqueue(c)
     
     after = ""
-    while q.next is not None:
+    while q.next() is not None:
         after += q.dequeue()
     
     print("After: " + after)
