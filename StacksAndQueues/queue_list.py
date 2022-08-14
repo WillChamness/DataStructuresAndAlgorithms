@@ -1,4 +1,27 @@
 class QueueList:
+    """ 
+    A data structure in which the first element inserted is
+    the first element to be accessed. 
+
+    Time complexity of searching: O(n).
+    Time complexity of inserting/removing: O(1).
+
+    Strategy: First in, first out (FIFO). The first element in
+    is the first element out. Keep a pointer to the next available
+    slot, and keep a pointer to the next item to be released. Note
+    that tail can be less than head when, for example, tail reaches 
+    the end and index 0 is open. Also a counter is needed to tell
+    if the queue is full or empty since abs(head - tail) could 
+    represent either a full queue or an empty queue.
+
+    You can also use a doubly linked list to represent a stack, where
+    the head of the queue is represented by the head of the LL and the
+    tail of the queue is represented by the tail of the LL.
+
+    Note: 
+    The class is named QueueList because there is a built in python
+    module named queue.
+    """
     def __init__(self, size=10, first_item=None):
         self.head = 0 # points to the next item to be released
         self.tail = 0 # points to the next available empty slot
@@ -7,20 +30,30 @@ class QueueList:
         self.q = []
 
     def enqueue(self, item):
+        """
+        Idea:
+        q[tail] represents the next available slot (even if there is something
+        in the list), so put the item at q[tail]. Then increment tail.
+        """
         if self.is_full():
             raise Exception("Queue is full")
         
-        if len(self.q) <= self.tail:
+        if len(self.q) <= self.tail: # must append to list when initially creating queue
             self.q.append(item)
         else: 
-            self.q[tail] = item
+            self.q[self.tail] = item
         
         self.counter = self.counter + 1
         self.tail = (self.tail + 1) % self.size
 
     def dequeue(self):
+        """
+        Idea:
+        q[head] represents the item at the front of the queue, so get the item
+        at q[head], increment q[head], and return the item.
+        """
         if self.is_empty():
-            return None
+            raise Exception("Queue is empty")
         
         item = self.q[self.head]
         self.head = (self.head + 1) % self.size
@@ -28,14 +61,25 @@ class QueueList:
         return item
     
     def next(self):
+        """ 
+        Similar to dequeue, but the item is not released from the queue.
+        Therefore head is not modified.
+        """
         if self.is_empty():
             return None
         return self.q[self.head]
 
     def is_empty(self):
+        """ 
+        Returns true when the item count is zero.
+        """
         return self.counter == 0
     
     def is_full(self):
+        """ 
+        Returns true when the item count is
+        equal to the queue size.
+        """
         return self.counter == self.size
 
 
@@ -54,18 +98,16 @@ def main():
         after += q.dequeue()
     print("After: " + after)
 
-    q = QueueList(3)
-    q.enqueue(1)
-    q.enqueue(2)
-    q.enqueue(3)
-    print("\nNext: " + str(q.next()))
-    q.dequeue()
-    print("Next: " + str(q.next()))
-
-    q = QueueList(1)
-    q.enqueue(1)
-    print("\n" + str(q.dequeue()))
-    print(q.dequeue())
+    before = "abcdefg"
+    print("\nBefore: " + before)
+    for c in before:
+        q.enqueue(c)
+    
+    after = ""
+    while q.next is not None:
+        after += q.dequeue()
+    
+    print("After: " + after)
 
     print("\nThis will cause an exception:")
     q = QueueList(1)
