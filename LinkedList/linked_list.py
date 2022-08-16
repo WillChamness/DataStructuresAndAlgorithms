@@ -254,6 +254,12 @@ def main():
     l.remove_last()
     print("\nNew LL after removing first and last: " + str(l.to_list()))
 
+    l.remove(100)
+    print("\nNew LL after removing out of bounds: " + str(l.to_list()))
+
+    l.remove(6)
+    print("\nNew LL after removing last index: " + str(l.to_list()))
+
     l.clear()
     print("\nLL after clearing: " + str(l.to_list()))
 
