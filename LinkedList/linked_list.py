@@ -1,5 +1,23 @@
 class LinkedList:
+    """ 
+    A data structure in which each node contains two items: the data and the next
+    node. Keep track of the first node (the "head" of the list), and you can access
+    any item in the list.
+
+    Time complexity of searching: O(n)
+    Time complexity of inserting/removing first: O(1)
+    Time complexity of inserting/removing anywhere else: O(n)
+
+    Strategy:
+    Use linear search to access everything. For peeking the recusive version of
+    linear searching was used. For modifying the non-recursive version was used out of
+    necessity due to the complexity.
+    """
+
     class LLNode:
+        """ 
+        Internal class to represent a node.
+        """
         def __init__(self, item, next):
             self.next = next
             self.item = item
@@ -12,6 +30,11 @@ class LinkedList:
             
 
     def add_first(self, item):
+        """ 
+        Idea: 
+        If the list is empty, set head to a new node. Otherwise set head to a new node
+        and set the old head to the next node.
+        """
         if self.head is None:
             self.head = self.LLNode(item, None)
         else:
@@ -19,6 +42,11 @@ class LinkedList:
 
 
     def add(self, item, index=0):
+        """
+        Idea:
+        Linearly move to the (i-1)-th node. Then set the i-th node to a new node
+        and set the old node to the (i+1)-th node. 
+        """
         if self.head is None:
             self.head = self.LLNode(item, None)
             return
@@ -43,6 +71,10 @@ class LinkedList:
 
 
     def add_last(self, item):
+        """ 
+        Idea:
+        If the list is length n, then move to the n-th node. Then add a new node.
+        """
         if self.head is None:
             add_first(item)
         else:
@@ -54,6 +86,11 @@ class LinkedList:
     
 
     def remove_first(self):
+        """ 
+        Idea:
+        If the list is empty, return nothing. Otherwise retrieve head's item and
+        let the next node be the new head.
+        """
         if self.head is None:
             return None
         else:
@@ -63,6 +100,12 @@ class LinkedList:
 
 
     def remove(self, index=0):
+        """
+        Idea:
+        If the list is empty, return nothing. If the given index is zero, simpty remove the
+        first element. Otherwise move to the node at index i-1. If the retrive the item at index
+        i and set the (i+1)-th node to the node at index i.
+        """
         if self.head is None:
             return None
         elif index <= 0:
@@ -80,11 +123,17 @@ class LinkedList:
         result = None
         if current_node.next is not None: # node at index i is not the end of the list
             result = current_node.next.item
-            current_node.next = current_node.next.next
+            current_node.next = current_node.next.next # Set the node at index i to the node at index i+1
         
         return result
 
     def remove_last(self):
+        """ 
+        Idea:
+        If the list is empty, then return nothing. If the list only contains one item,
+        then return the first item. Otherwise if the list is length n, then go to the 
+        (n-1)-th node. Retrieve the item at the n-th node and set the n-th node to None.
+        """
         if self.head is None:
             return None
         elif self.head.next is None:
@@ -100,14 +149,24 @@ class LinkedList:
         
 
     def clear(self):
+        """
+        Deletes the entire list.
+        """
         self.head = None
 
 
     def get(self, index=0):
+        """
+        Driver for the recursive method.
+        """
         return self.__get__(index, 0, self.head)
     
 
     def __get__(self, index, current_index, current_node):
+        """
+        Finds the item at the specified index. Continue until you find 
+        either you reach the end of the list or you find the item.
+        """
         if current_node is None:
             return None
         elif current_index == index:
@@ -117,10 +176,17 @@ class LinkedList:
 
 
     def find(self, target):
+        """ 
+        Driver for the recursive method.
+        """
         return self.__find__(target, 0, self.head)
 
 
     def __find__(self, target, current_index, current_node):
+        """ 
+        Finds the first occurance of the specified item. Continue until you 
+        either reach the end of the list or you find the item.
+        """
         if current_node is None:
             return -1
         elif current_node.item == target:
@@ -130,6 +196,10 @@ class LinkedList:
     
 
     def to_list(self):
+        """ 
+        Iterates through the linked list and retrieves each item as a
+        list.
+        """
         result = []
         
         current_node = self.head
