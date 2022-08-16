@@ -18,6 +18,6 @@ languages, e.g. Java.
 - Linear Search
 - Binary Search
 
-## Completed Sorting Algorithsm:
+## Completed Sorting Algorithms:
 - Selection Sort
 - Insertion Sort
