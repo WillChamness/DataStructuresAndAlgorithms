@@ -164,8 +164,10 @@ class LinkedList:
 
     def __get__(self, index, current_index, current_node):
         """
-        Finds the item at the specified index. Continue until you find 
-        either you reach the end of the list or you find the item.
+        Finds the item at the specified index. 
+
+        Idea:
+        Simply perform linear search on the list.
         """
         if current_node is None:
             return None
@@ -184,8 +186,10 @@ class LinkedList:
 
     def __find__(self, target, current_index, current_node):
         """ 
-        Finds the first occurance of the specified item. Continue until you 
-        either reach the end of the list or you find the item.
+        Finds the first occurance of the specified item. 
+
+        Idea: 
+        Simply perform linear search on the list.
         """
         if current_node is None:
             return -1
