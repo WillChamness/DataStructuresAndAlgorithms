@@ -13,6 +13,7 @@ languages, e.g. Java.
 ## Completed Data Structures:
 - Stack
 - Queue
+- Singly Linked List
 
 ## Completed Searching Algorithms:
 - Linear Search
