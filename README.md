@@ -22,3 +22,7 @@ languages, e.g. Java.
 ## Completed Sorting Algorithms:
 - Selection Sort
 - Insertion Sort
+
+## Currently working on:
+- Doubly linked list
+- Hash table
