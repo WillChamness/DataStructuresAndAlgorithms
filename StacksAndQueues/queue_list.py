@@ -21,6 +21,24 @@ class QueueList:
     Note: 
     The class is named QueueList because there is a built in python
     module named queue.
+
+
+    Example:
+    Given [1, 2, 3, 4, 5]. Enqueue each item to the queue (starting at index 0,
+    ending at index 4). Then dequeue each item.
+
+    Currently the queue is []. 
+    Enqueuing 1, you now have [1].
+    Enqueuing 2, you now have [1, 2].
+    Enqueuing 3, you now have [1, 2, 3].
+    Enqueuing 4, you now have [1, 2, 3, 4].
+    Enququing 5, you now have [1, 2, 3, 4, 5].
+
+    Dequeuing, you have processed 1. Now you have [2, 3, 4, 5].
+    Dequeuing, you have processed 2. Now you have [3, 4, 5].
+    Dequeuing, you have processed 3. Now you have [4, 5].
+    Dequeuing, you have processed 4. Now you have [5].
+    Dequeuing, you have processed 5. Now you have [].
     """
     def __init__(self, size=10, first_item=None):
         self.head = 0 # points to the next item to be released
