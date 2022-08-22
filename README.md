@@ -13,7 +13,7 @@ languages, e.g. Java.
 ## Completed Data Structures:
 - Stack
 - Queue
-- Singly Linked List
+- Singly & Doubly Linked List
 
 ## Completed Searching Algorithms:
 - Linear Search
@@ -24,5 +24,4 @@ languages, e.g. Java.
 - Insertion Sort
 
 ## Currently working on:
-- Doubly linked list
 - Hash table
