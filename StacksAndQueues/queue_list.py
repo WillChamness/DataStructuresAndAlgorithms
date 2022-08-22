@@ -127,6 +127,25 @@ def main():
     
     print("After: " + after)
 
+    before = "xyzabcd"
+    print("\nBefore: " + before)
+    
+    q = QueueList(len(before))
+    for c in before:
+        q.enqueue(c)
+    q.dequeue()
+    q.enqueue("e")
+    q.dequeue()
+    q.enqueue("f")
+    q.dequeue()
+    q.enqueue("g")
+
+    after = ""
+    while not q.is_empty():
+        after += q.dequeue()
+    
+    print("After: " + after)
+
     print("\nThis will cause an exception:")
     q = QueueList(1)
     q.enqueue(1)
