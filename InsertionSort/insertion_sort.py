@@ -4,6 +4,10 @@ def insertion_sort(li):
     Time complexity: O(n^2)
     Space complexity: O(1)
 
+    Idea: 
+    Starting at the beginning, move the current item after an item lesser than itself
+    (or to the first position). Then do the same with the item after. This process
+    is similar to how you would sort a deck of cards.
 
     Strategy:
     For every item in the list, compare to the item before it (if possible).
@@ -48,7 +52,7 @@ def insertion_sort(li):
         li[index1] = li[index2]
         li[index2] = temp
     
-    for i in range(1, len(li)): # Consider the sublist from 0 to i.
+    for i in range(1, len(li)): # Consider the sublist from 0 to i (no need to consider the sublist from 0 to 0). 
         for j in range(i, 0, -1): # start at the end of the sublist, move pointer left if swapped and stop if the pointer reaches 0.
             # move this object left if it is less than the previous. Then repeat.
             if li[j] < li[j-1]: 
