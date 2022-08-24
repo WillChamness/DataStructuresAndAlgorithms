@@ -24,4 +24,5 @@ languages, e.g. Java.
 - Insertion Sort
 
 ## Currently working on:
+- Shell sort
 - Hash table
