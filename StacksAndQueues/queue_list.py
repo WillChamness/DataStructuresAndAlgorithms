@@ -6,7 +6,8 @@ class QueueList:
     Time complexity of searching: O(n).
     Time complexity of inserting/removing: O(1).
 
-    Strategy: First in, first out (FIFO). The first element in
+    Strategy: 
+    First in, first out (FIFO). The first element in
     is the first element out. Keep a pointer to the next available
     slot, and keep a pointer to the next item to be released. Note
     that tail can be less than head when, for example, tail reaches 
@@ -44,8 +45,11 @@ class QueueList:
         self.head = 0 # points to the next item to be released
         self.tail = 0 # points to the next available empty slot
         self.counter = 0 # represents the total number of items in the queue
-        self.size = size
-        self.q = []
+        self.size = abs(size)
+        self.q = [None] * self.size
+
+        if first_item is not None:
+            self.enqueue(first_item)
 
     def enqueue(self, item):
         """
@@ -56,11 +60,7 @@ class QueueList:
         if self.is_full():
             raise Exception("Queue is full")
         
-        if len(self.q) <= self.tail: # must append to list when initially creating queue
-            self.q.append(item)
-        else: 
-            self.q[self.tail] = item
-        
+        self.q[self.tail] = item
         self.counter = self.counter + 1
         self.tail = (self.tail + 1) % self.size
 
@@ -133,12 +133,12 @@ def main():
     q = QueueList(len(before))
     for c in before:
         q.enqueue(c)
-    q.dequeue()
-    q.enqueue("e")
-    q.dequeue()
-    q.enqueue("f")
-    q.dequeue()
-    q.enqueue("g")
+    q.dequeue() # head should now be at index 1. q.q[0] == 'x', but it is inaccessible
+    q.enqueue("e") # 'e' should now be at index 0
+    q.dequeue() # head should now be at index 2
+    q.enqueue("f") # 'f' should be at index 1
+    q.dequeue() # head should now be at index 3
+    q.enqueue("g") # 'g' should be at index 2
 
     after = ""
     while not q.is_empty():
