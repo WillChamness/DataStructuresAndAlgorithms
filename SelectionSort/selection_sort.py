@@ -4,6 +4,10 @@ def selection_sort(li):
     Time complexity: O(n^2)
     Space complexity: O(1)
 
+    Idea:
+    Swap the first item with the smallest item, then swap the second item with the second
+    smallest item, then swap the third item with the third smallest item, etc.
+
     Strategy:
     For every item at index i, check all items to the right for the smallest item. Then swap
     the two. Repeat this process for index i + 1 until you have reached the end of the list.
