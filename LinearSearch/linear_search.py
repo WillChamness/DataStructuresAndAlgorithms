@@ -5,7 +5,8 @@ def linear_search(li, target, choice="recursive"):
     Space complexity: O(1)
 
     Idea:
-    Search the list one-by-one until you find the target.
+    Search the list one-by-one until you find the target. Unlike binary
+    search, linear search does not require the list to be sorted.
 
     Strategy:
     Starting at index 0, compare the item to the target. If they are equal,
