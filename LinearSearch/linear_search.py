@@ -2,7 +2,7 @@ def linear_search(li, target, choice="recursive"):
     """ 
     Searches a list of size n.
     Time complexity: O(n)
-    Space complexity: O(n)
+    Space complexity: O(1)
 
     Strategy:
     Starting at index 0, compare the item to the target. If they are equal,
