@@ -4,6 +4,9 @@ def linear_search(li, target, choice="recursive"):
     Time complexity: O(n)
     Space complexity: O(1)
 
+    Idea:
+    Search the list one-by-one until you find the target.
+
     Strategy:
     Starting at index 0, compare the item to the target. If they are equal,
     the target has been found. Otherwise, check the next item in the list.
