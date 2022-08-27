@@ -16,6 +16,24 @@ class Stack:
 
     You can also use a linked list to represent a stack, where the top of 
     the stack is represented by the head of the LL.
+
+
+    Example: 
+    Given [1, 2, 3, 4, 5]. Push each item into the stack (starting at index 0 and
+    ending at index 4). Then pop each item.
+
+    Currently the stack is []. 
+    Pushing 1 onto the stack, you now have [1].
+    Pushing 2 onto the stack, you now have [1, 2].
+    Pushing 3 onto the stack, you now have [1, 2, 3].
+    Pushing 4 onto the stack, you now have [1, 2, 3, 4].
+    Pushing 5 onto the stack, you now have [1, 2, 3, 4, 5].
+
+    Popping from the stack, you have processed 5. Now you have [1, 2, 3, 4].
+    Popping from the stack, you have processed 4. Now you have [1, 2, 3].
+    Popping from the stack, you have processed 3. Now you have [1, 2].
+    Popping from the stack, you have procesesd 2. Now you have [1].
+    Popping from the stack, you have processed 1. Now you have [].
     """
 
     def __init__(self, size=10, first_item=None):
