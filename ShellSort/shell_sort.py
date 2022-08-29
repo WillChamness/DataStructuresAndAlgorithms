@@ -5,6 +5,10 @@ def shell_sort(li):
     Time complexity: Ω(n^2)
     Space complexity: O(1)
 
+    Idea: 
+    Try to (somehow) get the lesser items closer to the left and the greater items
+    closer the right before performing insertion sort. 
+
 
     Some variations of shell sort can reduce the worst case time complexity 
     below n^2. This variation, however, has n^2 as the lower bound (and upper bound)
