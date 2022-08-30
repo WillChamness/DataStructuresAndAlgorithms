@@ -9,6 +9,13 @@ def shell_sort(li):
     Try to (somehow) get the lesser items closer to the left and the greater items
     closer the right before performing insertion sort. 
 
+    Strategy:
+    Let gap == m_1 > 0. Partiion the list such that all items' indeces are congruent to each 
+    other (mod m_1). Then perform insertion sort on the sublists. Put the items into the 
+    original list in order such that the set of their new indeces is still the same as the set
+    of their indeces before partitioning them. Then perform this process for gap == m_(k+1) < m_k 
+    for some integer k. Stop if gap < 1.
+    
 
     Some variations of shell sort can reduce the worst case time complexity 
     below n^2. This variation, however, has n^2 as the lower bound (and upper bound)
