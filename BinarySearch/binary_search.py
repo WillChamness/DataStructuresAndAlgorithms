@@ -4,6 +4,10 @@ def binary_search(sorted_list, target, choice="recursive"):
     Time complexity: O(log(n))
     Space complexity: O(1)
 
+    Idea:
+    Divide and conquer. Subdivide the sorted list until the target is found
+    or until there is nothing else to search.
+
     Strategy:
     Compare the target with the item in the middle of the array. If the target
     is equal to the item, the target has been found. If the target is less than 
