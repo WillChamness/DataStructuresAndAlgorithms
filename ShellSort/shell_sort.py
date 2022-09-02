@@ -110,5 +110,13 @@ def main():
     shell_sort(l)
     print(f"After: {l}")
 
+    l = []
+    for i in range(11):
+        l.append(r.randint(0,100))
+    
+    print(f"Before: {l}")
+    shell_sort(l)
+    print(f"After: {l}")
+
 if __name__ == "__main__":
     main()
