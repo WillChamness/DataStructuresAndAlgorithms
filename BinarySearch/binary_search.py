@@ -23,8 +23,8 @@ def binary_search(sorted_list, target, choice="recursive"):
     the right of 2. Now consider the sublist containing all items to the right
     of 2: [3. 4]. 
     
-    Begin at the middle index (index 0.5). We will arbitrarily round down since there is
-    an even number of items. 3 == 3, so we have found the target. 
+    Begin at the middle index (index 0.5). We will arbitrarily round down since the middle
+    index is not an integer. 3 == 3, so we have found the target. 
     """
 
     if choice == "recursive":
