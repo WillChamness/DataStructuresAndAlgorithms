@@ -6,14 +6,16 @@ class QueueList:
     Time complexity of searching: O(n).
     Time complexity of inserting/removing: O(1).
 
+    Idea:
+    First in, first out (FIFO). The first element in is the first 
+    element out. 
+
     Strategy: 
-    First in, first out (FIFO). The first element in
-    is the first element out. Keep a pointer to the next available
-    slot, and keep a pointer to the next item to be released. Note
-    that tail can be less than head when, for example, tail reaches 
-    the end and index 0 is open. Also a counter is needed to tell
-    if the queue is full or empty since abs(head - tail) == 0 ==> the
-    queue is either full or empty.
+    Keep a pointer to the next available slot, and keep a pointer 
+    to the next item to be released. Note that tail can be less than
+    head when, for example, tail reaches the end and index 0 is open. 
+    Also a counter is needed to tell if the queue is full or empty since
+    abs(head - tail) == 0 ==> the queue is either full or empty.
 
     You can also use a doubly linked list to represent a queue, where
     the head of the queue is represented by the head of the LL and the
