@@ -22,7 +22,7 @@ def shell_sort(li):
 
     Let gap == 8 // 2 == 4 (half the size of the list).
 
-    For demonstrational purposes, I will display the list as such:
+    To help visualize the next step, I will display the list as such:
     [3, 4, 1, 7,
      2, 6, 4, 0]
 
@@ -34,7 +34,7 @@ def shell_sort(li):
     item of the sublists from left to right: [3, 5, 1, 7, 2, 6, 4, 0].
     Let this new list represent the original. Now let gap == 4 // 2 == 2.
 
-    For demonstrational purposes, I will display the list as such:
+    To help visualize the next step, I will display the list as such:
     [3, 5,
      1, 7,
      2, 6,
@@ -54,7 +54,7 @@ def shell_sort(li):
     Notice how the lesser numbers have moved closer to the left and the greater 
     numbers have moved closer to the right. We have achived our goal in this case.
 
-    For demonstrational purposes, I will display the list as such:
+    To help visualize the next step, I will display the list as such:
     [1,
      0,
      2, 
