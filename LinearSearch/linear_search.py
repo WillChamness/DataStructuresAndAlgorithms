@@ -24,12 +24,12 @@ def linear_search(li, target, choice="recursive"):
     """
 
     if choice == "recursive":
-        return __linear_search_rec__(li, target, 0)
+        return _linear_search_rec(li, target, 0)
     else:
-        return __linear_search__(li, target)
+        return _linear_search(li, target)
 
 
-def __linear_search__(li, target):
+def _linear_search(li, target):
     # iterate through the list until the target has been found
     for i in range(len(li)): 
         if li[i] == target:
@@ -37,13 +37,13 @@ def __linear_search__(li, target):
     return -1 # target not found
 
 
-def __linear_search_rec__(li, target, index):
+def _linear_search_rec(li, target, index):
     if index < 0 or len(li) <= index: # continue until you are out of bounds
         return -1
     if li[index] == target: # target found, return its index
         return index
     else: # target not found, search the next item in the list
-        return __linear_search_rec__(li, target, index + 1)
+        return _linear_search_rec(li, target, index + 1)
 
 
 def main():
