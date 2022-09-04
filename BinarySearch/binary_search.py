@@ -28,12 +28,12 @@ def binary_search(sorted_list, target, choice="recursive"):
     """
 
     if choice == "recursive":
-        return __binary_search_rec__(sorted_list, target, 0, len(sorted_list) - 1)
+        return _binray_search_rec(sorted_list, target, 0, len(sorted_list) - 1)
     else:
-        return __binary_search__(sorted_list, target)
+        return _binray_search(sorted_list, target)
 
 
-def __binary_search__(l, target):
+def _binray_search(l, target):
     lo = 0
     hi = len(l) - 1
 
@@ -49,7 +49,7 @@ def __binary_search__(l, target):
     return -1 # target not found
 
 
-def __binary_search_rec__(l, target, lo, hi):
+def _binray_search_rec(l, target, lo, hi):
     if lo > hi: # continue until there is nothing left to search
         return -1
     
@@ -57,9 +57,9 @@ def __binary_search_rec__(l, target, lo, hi):
     if l[mid] == target: # target found, return its index
         return mid
     elif target < l[mid]: # target is in the left half, perform binary search on the left half of the sublist
-        return __binary_search_rec__(l, target, lo, mid - 1)
+        return _binray_search_rec(l, target, lo, mid - 1)
     else:
-        return __binary_search_rec__(l, target, mid + 1, hi) # target is in the right half, perform binary search on the right half of the sublist
+        return _binray_search_rec(l, target, mid + 1, hi) # target is in the right half, perform binary search on the right half of the sublist
     
 
         
