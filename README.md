@@ -22,7 +22,7 @@ languages, e.g. Java.
 ## Completed Sorting Algorithms:
 - Selection Sort
 - Insertion Sort
+- Shell sort
 
 ## Currently working on:
-- Shell sort
 - Hash table
