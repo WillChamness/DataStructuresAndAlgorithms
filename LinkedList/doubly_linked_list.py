@@ -153,10 +153,10 @@ class DoublyLinkedList:
         """ 
         Driver for the recursive method.
         """
-        return self.__get__(index, 0, self.head)
+        return self._get(index, 0, self.head)
 
 
-    def __get__(self, index, current_index, current_node):
+    def _get(self, index, current_index, current_node):
         """ 
         Retrieves the item at the specified index.
         """
@@ -165,17 +165,17 @@ class DoublyLinkedList:
         elif current_index == index:
             return current_node.item
         else:
-            return self.__get__(index, current_index + 1, current_node.next)
+            return self._get(index, current_index + 1, current_node.next)
 
 
     def find(self, target):
         """ 
         Driver for the recursive method.
         """
-        return self.__find__(target, 0, self.head)
+        return self._find(target, 0, self.head)
 
 
-    def __find__(self, target, current_index, current_node):
+    def _find(self, target, current_index, current_node):
         """ 
         Returns the index of the first occurance of the specified item.
         """
@@ -184,7 +184,7 @@ class DoublyLinkedList:
         elif current_node.item == target:
             return current_index
         else:
-            return self.__find__(target, current_index + 1, current_node.next)
+            return self._find(target, current_index + 1, current_node.next)
 
 
     def to_list(self):
