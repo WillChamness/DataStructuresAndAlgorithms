@@ -26,3 +26,4 @@ languages, e.g. Java.
 
 ## Currently working on:
 - Hash table
+- Bubble sort
