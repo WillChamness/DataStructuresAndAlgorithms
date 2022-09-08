@@ -2,7 +2,7 @@ def shell_sort(li):
     """
     An optimized insertion sort.
 
-    Time complexity: Ω(n^2)
+    Time complexity: O(n^2)
     Space complexity: O(1)
 
     Idea: 
@@ -75,8 +75,8 @@ def shell_sort(li):
 
 
     Some variations of shell sort can reduce the worst case time complexity 
-    below n^2. This variation, however, has n^2 as the lower bound (and upper bound)
-    time complexity.
+    below n^2. This variation, however, has n^2 as the upper bound (and lower bound)
+    time complexity. 
 
     Compare to insertion sort to see similarities.
     """
