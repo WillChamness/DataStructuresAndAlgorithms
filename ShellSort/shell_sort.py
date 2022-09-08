@@ -75,8 +75,11 @@ def shell_sort(li):
 
 
     Some variations of shell sort can reduce the worst case time complexity 
-    below n^2. This variation, however, has n^2 as the upper bound (and lower bound)
-    time complexity. 
+    below n^2 (see shell_sort_optimized.py). As a result, shell sort is *technically*
+    an optimization to insertion sort. This variation, however, has the same time 
+    complexity as insertion sort, namely O(n^2). Furthermore, this variation has a 
+    higher cache miss rate. Consequently, this variation is actually worse than 
+    insertion sort despite the fact that they have the same time complexity.
 
     Compare to insertion sort to see similarities.
     """
