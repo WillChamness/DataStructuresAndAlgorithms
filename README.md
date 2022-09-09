@@ -22,8 +22,8 @@ languages, e.g. Java.
 ## Completed Sorting Algorithms:
 - Selection Sort
 - Insertion Sort
-- Shell sort
 
 ## Currently working on:
 - Hash table
 - Bubble sort
+- Shell sort (optimizations)
