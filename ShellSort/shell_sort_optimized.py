@@ -1,17 +1,14 @@
 import math
 
-def update_gap(k, sequence):
-    return sequence(k)
-
 def swap(li, index1, index2):
     temp = li[index1]
-    li[index2] = li[index1]
-    li[index1] = temp
+    li[index1] = li[index2]
+    li[index2] = temp
 
 def shell_sort_hibbard(li):
     """ 
     Define the gap as such:
-    g_k == 2^k - 1 for some positive integer k
+    g_k == 2^k - 1 > 0 for some positive integer k
 
     Time complexity: O(n^(3/2))
     Space complexirt: O(1)
@@ -20,7 +17,7 @@ def shell_sort_hibbard(li):
     n = len(li) # store length for optimization purposes
     k = int(math.log(n, 2)) # initializing k like this will guarentee a gap <= n
     SEQUENCE = lambda k : 2**k - 1
-    gap = update_gap(k, SEQUENCE)
+    gap = SEQUENCE(k)
 
     while gap > 0:
         for i in range(gap, n):
@@ -30,5 +27,18 @@ def shell_sort_hibbard(li):
                 else:
                     break
         k -= 1
-        gap = update_gap(k, SEQUENCE)
-    
+        gap = SEQUENCE(k)
+
+
+def main():
+    import random as rd 
+    l = []
+    for i in range(10):
+        l.append(rd.randint(0,100))
+    print("Before:", l)
+    shell_sort_hibbard(l)
+    print("After:", l)
+ 
+
+if __name__ == "__main__":
+    main()
