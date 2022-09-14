@@ -1,3 +1,6 @@
+# Information about time complexities and authors taken from here:
+# https://en.wikipedia.org/wiki/Shellsort
+
 import math
 
 def swap(li, index1, index2):
