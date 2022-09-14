@@ -35,7 +35,7 @@ def shell_sort_hibbard(li):
 
 def shell_sort_sedgewick_1982(li):
     n = len(li)
-    k = log(sqrt(n), 2)
+    k = int(log(sqrt(n), 2))
 
     SEQUENCE = lambda k : 4**k + 3*2**(k-1) + 1
     gap = SEQUENCE(k)
