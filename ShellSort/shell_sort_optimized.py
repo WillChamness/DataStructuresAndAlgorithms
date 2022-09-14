@@ -35,9 +35,9 @@ def shell_sort_hibbard(li):
 
 def shell_sort_sedgewick_1982(li):
     n = len(li)
-    k = int(log(sqrt(n), 2))
+    k = int(math.log(math.sqrt(n), 2))
 
-    SEQUENCE = lambda k : 4**k + 3*2**(k-1) + 1
+    SEQUENCE = lambda k : 4**k + 3*2**(k-1) + 1 if k >= 1 else (1 if k == 0 else 0)
     gap = SEQUENCE(k)
 
     while gap > 0:
@@ -54,11 +54,19 @@ def shell_sort_sedgewick_1982(li):
 def main():
     import random as rd 
     l = []
-    for i in range(10):
-        l.append(rd.randint(0,100))
-    print("Before:", l)
-    shell_sort_hibbard(l)
-    print("After:", l)
+    for i in range(2):
+        temp = []
+        for j in range(10):
+            temp.append(rd.randint(0, 100))
+        l.append(temp)
+        
+    print("Before (hibbard):", l[0])
+    shell_sort_hibbard(l[0])
+    print("After (hibbard):", l[0])
+
+    print("\nBefore (sedgewick):", l[1])
+    shell_sort_sedgewick_1982(l[1])
+    print("After (sedgewick):", l[1])
  
 
 if __name__ == "__main__":
