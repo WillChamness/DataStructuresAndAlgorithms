@@ -33,6 +33,24 @@ def shell_sort_hibbard(li):
         gap = SEQUENCE(k)
 
 
+def shell_sort_sedgewick_1982(li):
+    n = len(li)
+    k = log(sqrt(n), 2)
+
+    SEQUENCE = lambda k : 4**k + 3*2**(k-1) + 1
+    gap = SEQUENCE(k)
+
+    while gap > 0:
+        for i in range(gap, n):
+            for j in range(i, 0, -gap):
+                if j >= gap and li[j] < li[j - gap]:
+                    swap(li, j, j - gap)
+                else:
+                    break
+        k -= 1
+        gap = SEQUENCE(k)
+
+
 def main():
     import random as rd 
     l = []
