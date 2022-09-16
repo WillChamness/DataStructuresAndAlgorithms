@@ -14,7 +14,7 @@ def shell_sort_hibbard(li):
     g_k == 2^k - 1 > 0 for some positive integer k
 
     Time complexity: O(n^(3/2))
-    Space complexirt: O(1)
+    Space complexity: O(1)
     """
 
     n = len(li) # store length for optimization purposes
