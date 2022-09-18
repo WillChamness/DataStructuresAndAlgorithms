@@ -71,5 +71,12 @@ def main():
     insertion_sort(l)
     print("After: " + str(l))
 
+    l = []
+    for k in range(11):
+        l.append(r.randint(0, 100))
+    print("\nBefore: " + str(l))
+    insertion_sort(l)
+    print("After: " + str(l))
+
 if __name__ == "__main__":
     main()
