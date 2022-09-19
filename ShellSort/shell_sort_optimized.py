@@ -61,7 +61,7 @@ def shell_sort_ciura(li):
     Gap experimentally derived. Formula unknown as of 9/9/2022.
     Gap is an element of [1, 4, 10, 23, 57, 132, 301, 701]
 
-    Time complexity: unknown as of 9/9/2022
+    Time complexity: unknown as of 9/19/2022
     Space complexity: O(1)
     """
     n = len(li)
