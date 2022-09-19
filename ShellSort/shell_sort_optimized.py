@@ -83,7 +83,7 @@ def shell_sort_ciura(li):
 def main():
     import random as rd 
     l = []
-    for i in range(2):
+    for i in range(3):
         temp = []
         for j in range(10):
             temp.append(rd.randint(0, 100))
@@ -96,6 +96,11 @@ def main():
     print("\nBefore (sedgewick):", l[1])
     shell_sort_sedgewick_1982(l[1])
     print("After (sedgewick):", l[1])
+
+    print("\nBefore (cuira):", l[2])
+    shell_sort_ciura(l[2])
+    print("After (ciura):", l[2])
+
  
 
 if __name__ == "__main__":
