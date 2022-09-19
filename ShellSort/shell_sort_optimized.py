@@ -56,6 +56,30 @@ def shell_sort_sedgewick_1982(li):
         gap = SEQUENCE(k)
 
 
+def shell_sort_ciura(li):
+    """ 
+    Gap experimentally derived. Formula unknown as of 9/9/2022.
+    Gap is an element of [1, 4, 10, 23, 57, 132, 301, 701]
+
+    Time complexity: unknown as of 9/9/2022
+    Space complexity: O(1)
+    """
+    n = len(li)
+    k = 7 # last index of list below
+    SEQUENCE = lambda k : [1, 4, 10, 23, 57, 132, 301, 701][k] 
+    gap = SEQUENCE(k)
+
+    while gap > 0:
+        for i in range(gap, n):
+            for j in range(i, 0, -gap):
+                if j >= gap and li[j] < li[j - gap]:
+                    swap(li, j, j - gap)
+                else:
+                    break
+        k -= 1
+        gap = SEQUENCE(k)
+
+
 def main():
     import random as rd 
     l = []
