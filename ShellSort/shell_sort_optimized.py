@@ -97,7 +97,7 @@ def main():
     shell_sort_sedgewick_1982(l[1])
     print("After (sedgewick):", l[1])
 
-    print("\nBefore (cuira):", l[2])
+    print("\nBefore (ciura):", l[2])
     shell_sort_ciura(l[2])
     print("After (ciura):", l[2])
 
