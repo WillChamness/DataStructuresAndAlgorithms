@@ -29,3 +29,7 @@ class HashTable:
         if self.table[index].find(key) >= 0: # key/value found. Extract value
             self.value_count = self.value_count - 1
             return self.table[index].remove(key)
+
+    def get_value(self, key):
+        index = self.hash(key)
+        return self.table[index].get(key)
