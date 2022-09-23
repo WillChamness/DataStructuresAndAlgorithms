@@ -18,7 +18,7 @@ def shell_sort_hibbard(li):
     """
 
     n = len(li) # store length for optimization purposes
-    k = int(math.log(n, 2)) # initializing k like this will guarentee a gap <= n
+    k = int(math.log(n, 2)) # initializing k like this will guarentee a gap < n
     SEQUENCE = lambda k : 2**k - 1
     gap = SEQUENCE(k)
 
