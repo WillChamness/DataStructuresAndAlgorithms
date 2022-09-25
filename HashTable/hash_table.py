@@ -19,7 +19,7 @@ class HashTable:
     def add(self, key, value):
         """ 
         Adds the key/value pair of to the table using the above hashing function.
-        Note that table[i] represents a linked list, so table[i].add() is a finction
+        Note that table[i] represents a linked list, so table[i].add() is a function
         of the linked list. 
         """
         index = self.hash(key)
