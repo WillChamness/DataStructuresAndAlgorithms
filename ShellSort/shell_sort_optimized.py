@@ -86,8 +86,10 @@ def shell_sort_generic(li: list, sequence: type(lambda x : 1), initial_k: int):
     k = initial_k
     n = len(li)
     gap = sequence(k)
-    if type(gap) is not int or gap < 1:
-        raise TypeError("Bad sequence or initial k")
+    if type(gap) is not int:
+        raise TypeError("Bad sequence")
+    if gap < 1:
+        raise ValueError("Bad initial k")
 
     while gap > 0:
         for i in range(gap, n):
