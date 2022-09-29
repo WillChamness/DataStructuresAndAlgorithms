@@ -127,7 +127,8 @@ def main():
     print("After (ciura):", l[2])
 
     print("\nBefore (generic):", l[3])
-    shell_sort_generic(l[3], lambda k : int(len(l[3]) / 2**-k), -1) # original shell sort
+    # original shell sort - initial k negative as workaround since k decrements
+    shell_sort_generic(l[3], lambda k : int(len(l[3]) / 2**-k), -1)
     print("After (generic):", l[3])
 
  
