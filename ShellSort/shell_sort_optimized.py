@@ -80,7 +80,7 @@ def shell_sort_ciura(li):
         gap = SEQUENCE(k)
 
 
-def shell_sort_generic(li: list, sequence: type(lambda x : 1), initial_k: int):
+def shell_sort_generic(li: list, sequence: type(lambda x : 1), initial_k: int, k_step: type(lambda x : 1)=lambda k : k-1):
     if type(sequence) is not type(lambda x : 1):
         raise TypeError("Sequence not a function")
     k = initial_k
@@ -98,7 +98,7 @@ def shell_sort_generic(li: list, sequence: type(lambda x : 1), initial_k: int):
                     swap(li, j, j - gap)
                 else:
                     break 
-        k -= 1
+        k = k_step(k)
         gap = sequence(k)
         if type(gap) is not int:
             raise TypeError("Bad sequence")
