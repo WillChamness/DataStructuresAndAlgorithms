@@ -108,7 +108,7 @@ def shell_sort_generic(li: list, sequence: type(lambda x : 1), initial_k: int, k
 def main():
     import random as rd 
     l = []
-    for i in range(4):
+    for i in range(5):
         temp = []
         for j in range(10):
             temp.append(rd.randint(0, 100))
@@ -131,6 +131,9 @@ def main():
     shell_sort_generic(l[3], lambda k : int(len(l[3]) / 2**-k), -1)
     print("After (generic):", l[3])
 
+    print("\nBefore (generic):", l[4])
+    shell_sort_generic(l[4], lambda k : int(len(l[4]) / 2**k), 1, lambda k : k+1)
+    print("After (generic):", l[4])
  
 
 if __name__ == "__main__":
