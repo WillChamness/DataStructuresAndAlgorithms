@@ -42,7 +42,7 @@ def shell_sort_sedgewick_1982(li):
     n = len(li)
     k = int(math.log(math.sqrt(n), 2))
 
-    SEQUENCE = lambda k : 4**k + 3*2**(k-1) + 1 if k >= 1 else (1 if k == 0 else 0)
+    SEQUENCE = lambda k : 4**k + 3*2**(k-1) + 1 if k >= 1 else (1 if k == 0 else 0) # add condition to perform insertion sort at the end as well as a condition to exit loop
     gap = SEQUENCE(k)
 
     while gap > 0:
