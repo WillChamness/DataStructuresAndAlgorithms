@@ -106,7 +106,8 @@ def main():
     import random as r 
     l = []
 
-    for i in range(10):
+    # case where n is even
+    for i in range(10): 
         l.append(r.randint(0,100))
     
     print(f"Before: {l}")
@@ -114,6 +115,7 @@ def main():
     print(f"After: {l}")
 
     l = []
+    # case where n is odd
     for i in range(11):
         l.append(r.randint(0,100))
     
