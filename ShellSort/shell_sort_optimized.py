@@ -108,7 +108,7 @@ def shell_sort_generic(li: list, sequence: type(lambda x : 1), initial_k: int):
 def main():
     import random as rd 
     l = []
-    for i in range(3):
+    for i in range(4):
         temp = []
         for j in range(10):
             temp.append(rd.randint(0, 100))
@@ -125,6 +125,10 @@ def main():
     print("\nBefore (ciura):", l[2])
     shell_sort_ciura(l[2])
     print("After (ciura):", l[2])
+
+    print("\nBefore (generic):", l[3])
+    shell_sort_generic(l[3], lambda k : int(len(l[3]) / 2**-k), -1) # original shell sort
+    print("After (generic):", l[3])
 
  
 
