@@ -69,7 +69,7 @@ def shell_sort_ciura(li):
     """
     n = len(li)
     k = 8 # last index of list below
-    SEQUENCE = lambda k : [0, 1, 4, 10, 23, 57, 132, 301, 701][k] 
+    SEQUENCE = lambda k : [0, 1, 4, 10, 23, 57, 132, 301, 701][k] # append 0 to front of list to exit loop when done
     gap = SEQUENCE(k)
 
     while gap > 0:
