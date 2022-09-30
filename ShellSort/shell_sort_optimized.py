@@ -42,7 +42,7 @@ def shell_sort_sedgewick_1982(li):
     n = len(li)
     k = int(math.log(math.sqrt(n), 2))
 
-    SEQUENCE = lambda k : 4**k + 3*2**(k-1) + 1 if k >= 1 else (1 if k == 0 else 0) # add condition to perform insertion sort at the end as well as a condition to exit loop
+    SEQUENCE = lambda k : 4**k + 3*2**(k-1) + 1 if k >= 1 else (1 if k == 0 else 0)
     gap = SEQUENCE(k)
 
     while gap > 0:
@@ -101,7 +101,7 @@ def shell_sort_generic(li: list, sequence: type(lambda x : 1), initial_k: int, k
         k = k_step(k)
         gap = sequence(k)
         if type(gap) is not int:
-            raise TypeError("Bad sequence")
+            raise TypeError("Bad sequence or k_step")
 
 
 
@@ -134,6 +134,7 @@ def main():
     print("\nBefore (generic):", l[4])
     shell_sort_generic(l[4], lambda k : int(len(l[4]) / 2**k), 1, lambda k : k+1)
     print("After (generic):", l[4])
+ 
  
 
 if __name__ == "__main__":
