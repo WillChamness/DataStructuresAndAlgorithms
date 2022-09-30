@@ -38,6 +38,9 @@ def shell_sort_sedgewick_1982(li):
     Define gap as a piecewise function:
     g_k = { 1, k = 0
           { (2^k)^2 + (3/2)(2^k) + 1 = 4^k + 3(2)^k-1 + 1, k > 0
+
+    Time complexity: O(n^4/3)
+    Space complexity: O(1)
     """
     n = len(li)
     k = int(math.log(math.sqrt(n), 2))
