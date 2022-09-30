@@ -135,6 +135,7 @@ def main():
     print("After (generic):", l[3])
 
     print("\nBefore (generic):", l[4])
+    # same as before, but the sequence is expressed in a more natural function
     shell_sort_generic(l[4], lambda k : int(len(l[4]) / 2**k), 1, lambda k : k+1)
     print("After (generic):", l[4])
  
