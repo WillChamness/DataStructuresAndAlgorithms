@@ -11,7 +11,7 @@ def swap(li, index1, index2):
 def shell_sort_hibbard(li):
     """ 
     Define the gap as such:
-    g_k == 2^k - 1 > 0 for some positive integer k
+    g_k = 2^k - 1 > 0 for some positive integer k
 
     Time complexity: O(n^(3/2))
     Space complexity: O(1)
