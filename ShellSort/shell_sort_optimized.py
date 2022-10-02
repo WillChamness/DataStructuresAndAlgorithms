@@ -84,6 +84,10 @@ def shell_sort_ciura(li):
 
 
 def shell_sort_generic(li: list, sequence: type(lambda x : 1), initial_k: int, k_step: type(lambda x : 1)=lambda k : k-1):
+    """ 
+    Generic shell sort function. Sequence is a function of k, and k will increment/decrement based on k_step. Gap must be
+    an integer, and for the first iteration, gap must be greater than or equal to 1.
+    """ 
     if type(sequence) is not type(lambda x : 1):
         raise TypeError("Sequence not a function")
     k = initial_k
