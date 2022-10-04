@@ -44,3 +44,10 @@ class HashTable:
         results = self.table[index].remove(key)
         if results is not None: # key/value found. Create new key/value pair
             self.table[index].add(key, new_value)
+    
+    def lamda(self):
+        """ 
+        Returns lamda, the ratio of the number of items to the table size.
+        The optimal lamda for this implementation is 1.
+        """
+        return self.value_count / self.size
