@@ -38,3 +38,9 @@ class HashTable:
     def get_value(self, key):
         index = self.hash(key)
         return self.table[index].get(key)
+    
+    def modify(self, key, new_value):
+        index = self.hash(key)
+        results = self.table[index].remove(key)
+        if results is not None: # key/value found. Create new key/value pair
+            self.table[index].add(key, new_value)
