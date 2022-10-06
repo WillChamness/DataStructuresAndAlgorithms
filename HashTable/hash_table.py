@@ -51,3 +51,20 @@ class HashTable:
         The optimal lamda for this implementation is 1.
         """
         return self.value_count / self.size
+
+    def rehash(self):
+        if self.lamda() <= 1:
+            return
+        
+        old_table = self.table
+        self.size = self.size * 2
+        self.table = []
+        
+        for i in range(self.size):
+            self.table.append(LinkedList())
+
+        for i in range(len(old_table)):
+            backup = old_table[i].to_list()
+            for j in range(len(backup)):
+                self.add(backup[j][0], backup[j][1])
+                self.value_count = self.value_count - 1 # not actually adding a new key/value pair
