@@ -2,8 +2,8 @@ from linked_list import LinkedList
 
 class HashTable:
     def __init__(self, size=10):
-        self.size = size
-        self.value_count = 0
+        self.size = size # i.e. m
+        self.value_count = 0 # i.e. n
         self.table = []
         for i in range(size):
             self.table.append(LinkedList())
