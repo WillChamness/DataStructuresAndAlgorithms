@@ -8,6 +8,10 @@ class HashTable:
             self.table.append(LinkedList())
 
     def hash(self, key):
+        """ 
+        Simple hashing function. Takes a string and returns the total unicode value of each character
+        mod the table size. Note that this implementation is far from optimal.
+        """
         result = 0
         s = str(key)
         for c in s:
