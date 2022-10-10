@@ -1,6 +1,8 @@
 from linked_list import LinkedList
 
 class HashTable:
+    OPTIMAL_LAMDA = 1
+
     def __init__(self, size=10):
         self.size = size # i.e. m
         self.value_count = 0 # i.e. n
@@ -58,7 +60,7 @@ class HashTable:
         return self.value_count / self.size
 
     def rehash(self):
-        if self.lamda() <= 1:
+        if self.lamda() <= OPTIMAL_LAMDA:
             return
         
         old_table = self.table
