@@ -60,7 +60,7 @@ class HashTable:
         return self.value_count / self.size
 
     def rehash(self):
-        if self.lamda() <= OPTIMAL_LAMDA:
+        if self.lamda() <= HashTable.OPTIMAL_LAMDA:
             return
         
         old_table = self.table
