@@ -29,4 +29,3 @@ This repo is not for those who are new to DSAAs. There are many other resources 
 ## Currently working on:
 - Hash table
 - Bubble sort
-- Shell sort (optimizations)
