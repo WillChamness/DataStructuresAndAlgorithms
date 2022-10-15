@@ -37,6 +37,9 @@ class HashTable:
             self.rehash()
     
     def remove(self, key):
+        """ 
+        Removes the key/value pair of the table using the above hashing function.
+        """
         index = self.hash(key)
         if self.table[index].find(key) >= 0: # key/value found. Extract value
             self.value_count = self.value_count - 1
