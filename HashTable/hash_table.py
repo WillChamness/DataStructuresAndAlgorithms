@@ -46,6 +46,9 @@ class HashTable:
             return self.table[index].remove(key)
 
     def get_value(self, key):
+        """ 
+        Returns the value with the associated key using the above hashing function.
+        """
         index = self.hash(key)
         return self.table[index].get(key)
     
