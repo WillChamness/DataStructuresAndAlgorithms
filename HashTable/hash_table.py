@@ -53,6 +53,9 @@ class HashTable:
         return self.table[index].get(key)
     
     def modify(self, key, new_value):
+        """ 
+        Given a key, set the assocuated value to something new.
+        """
         index = self.hash(key)
         results = self.table[index].remove(key)
         if results is not None: # key/value found. Create new key/value pair
