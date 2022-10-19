@@ -69,6 +69,10 @@ class HashTable:
         return self.value_count / self.size
 
     def rehash(self):
+        """ 
+        Copies the data to a new table. The new size is twice the previous. Must perform 
+        above hashing function with new table size.
+        """ 
         if self.lamda() <= HashTable.OPTIMAL_LAMDA:
             return
         
