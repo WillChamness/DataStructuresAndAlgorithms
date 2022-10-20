@@ -19,7 +19,7 @@ class HashTable:
         s = str(key)
         for c in s:
             result = result + ord(c)
-        result = result % self.size
+        result %= self.size
 
         return result
     
@@ -32,7 +32,7 @@ class HashTable:
         
         if self.table[index].find(key) < 0: # key/value not found. Add key/value
             self.table[index].add(key, value)
-            self.value_count = self.value_count + 1
+            self.value_count += + 1
             self.rehash()
     
     def remove(self, key):
@@ -42,7 +42,7 @@ class HashTable:
         """
         index = self.hash(key)
         if self.table[index].find(key) >= 0: # key/value found. Extract value
-            self.value_count = self.value_count - 1
+            self.value_count -= 1
             return self.table[index].remove(key)
 
     def get_value(self, key):
@@ -77,7 +77,7 @@ class HashTable:
             return
         
         old_table = self.table
-        self.size = self.size * 2
+        self.size *= 2
         self.table = []
         
         for i in range(self.size):
@@ -87,4 +87,4 @@ class HashTable:
             backup = old_table[i].to_list()
             for j in range(len(backup)):
                 self.add(backup[j][0], backup[j][1])
-                self.value_count = self.value_count - 1 # not actually adding a new key/value pair
+                self.value_count -= 1 # not actually adding a new key/value pair
