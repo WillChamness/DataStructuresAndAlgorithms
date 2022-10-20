@@ -5,7 +5,7 @@ class HashTable:
 
     def __init__(self, size=10):
         self.size = size # i.e. m
-        self.value_count = 0 # i.e. n
+        self.item_count = 0 # i.e. n
         self.table = []
         for i in range(size):
             self.table.append(LinkedList())
@@ -32,7 +32,7 @@ class HashTable:
         
         if self.table[index].find(key) < 0: # key/value not found. Add key/value
             self.table[index].add(key, value)
-            self.value_count += + 1
+            self.item_count += 1
             self.rehash()
     
     def remove(self, key):
@@ -42,7 +42,7 @@ class HashTable:
         """
         index = self.hash(key)
         if self.table[index].find(key) >= 0: # key/value found. Extract value
-            self.value_count -= 1
+            self.item_count -= 1
             return self.table[index].remove(key)
 
     def get_value(self, key):
@@ -66,7 +66,7 @@ class HashTable:
         Returns lamda, the ratio of the number of items to the table size.
         The optimal lamda for this implementation is 1.
         """
-        return self.value_count / self.size
+        return self.item_count / self.size
 
     def rehash(self):
         """ 
@@ -87,4 +87,4 @@ class HashTable:
             backup = old_table[i].to_list()
             for j in range(len(backup)):
                 self.add(backup[j][0], backup[j][1])
-                self.value_count -= 1 # not actually adding a new key/value pair
+                self.item_count -= 1 # not actually adding a new key/value pair
