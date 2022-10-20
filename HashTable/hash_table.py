@@ -26,8 +26,7 @@ class HashTable:
     def add(self, key, value):
         """ 
         Adds the key/value pair of to the table using the above hashing function.
-        Note that table[i] represents a linked list, so table[i].add() is a function
-        of the linked list. 
+        Note that table[i] represents a linked list.
         """
         index = self.hash(key)
         
@@ -38,7 +37,8 @@ class HashTable:
     
     def remove(self, key):
         """ 
-        Removes the key/value pair of the table using the above hashing function.
+        Removes the key/value pair of the table using the above hashing function. 
+        Note that table[i] represents a linked list.
         """
         index = self.hash(key)
         if self.table[index].find(key) >= 0: # key/value found. Extract value
