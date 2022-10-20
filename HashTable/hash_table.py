@@ -1,6 +1,11 @@
 from linked_list import LinkedList
 
 class HashTable:
+    """ 
+    A.K.A. dictionaries in Python.
+
+    Simple implementation of a hash table. Uses chaining to deal with collisions.
+    """
     OPTIMAL_LAMDA = 1
 
     def __init__(self, size=10):
