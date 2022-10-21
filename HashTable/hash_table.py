@@ -5,6 +5,14 @@ class HashTable:
     A.K.A. dictionaries in Python.
 
     Simple implementation of a hash table. Uses chaining to deal with collisions.
+    
+    Strategy: 
+    Take a string and convert it to a number. Use this number to represent the index of
+    a list. Add/remove/modify a value at that index. 
+
+    You can also use linear or quadratic probing to deal with collisions.
+
+    See the hash function for an example.
     """
     OPTIMAL_LAMDA = 1
 
@@ -19,14 +27,6 @@ class HashTable:
         """ 
         Simple hashing function. Takes a string and returns the total unicode value of each character
         mod the table size. Note that this implementation is far from optimal.
-
-        Strategy: 
-        Take a string and convert it to a number. Use this number to represent the index of
-        a list. Add/remove/modify a value at that index. 
-
-        You can also use linear or quadratic probing to deal with collisions.
-
-        See the hash function for an example.
         """
         result = 0
         s = str(key)
