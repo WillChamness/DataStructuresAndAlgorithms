@@ -12,7 +12,7 @@ class HashTable:
 
     You can also use linear or quadratic probing to deal with collisions.
 
-    See the hash function for an example.
+    See the hash function for an example and "Hash table with chaining.png" for an illustration.
     """
     OPTIMAL_LAMDA = 1
 
