@@ -101,3 +101,17 @@ class HashTable:
             for j in range(len(backup)):
                 self.add(backup[j][0], backup[j][1])
                 self.item_count -= 1 # not actually adding a new key/value pair
+
+def main():
+    import random as r
+    h = HashTable()
+    h.add("a", 1)
+    h.add("b", 2)
+    h.add("c", 3)
+
+    print("Value with key 'a': {}".format(h.get_value("a")))
+    print("Value with key 'c': {}".format(h.get_value("c")))
+    print("Value with key 'd': {}".format(h.get_value("d")))
+
+if __name__ == "__main__":
+    main()
