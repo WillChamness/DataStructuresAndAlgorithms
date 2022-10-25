@@ -113,5 +113,9 @@ def main():
     print("Value with key 'c': {}".format(h.get_value("c")))
     print("Value with key 'd': {}".format(h.get_value("d")))
 
+    h.add("d", 4)
+    h.add("e", 5)
+    h.add("f", 5)
+
 if __name__ == "__main__":
     main()
