@@ -108,7 +108,6 @@ def main():
     h.add("a", 1)
     h.add("b", 2)
     h.add("c", 3)
-
     print("Value with key 'a': {}".format(h.get_value("a")))
     print("Value with key 'c': {}".format(h.get_value("c")))
     print("Value with key 'd': {}".format(h.get_value("d")))
@@ -116,6 +115,8 @@ def main():
     h.add("d", 4)
     h.add("e", 5)
     h.add("f", 5)
+    print("Value with key 'e': {}".format(h.get_value("e")))
+    print("Value with key 'f': {}".format(h.get_value("f")))
 
 if __name__ == "__main__":
     main()
