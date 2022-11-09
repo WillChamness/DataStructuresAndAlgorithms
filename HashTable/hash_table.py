@@ -121,6 +121,8 @@ def main():
     h.remove("c")
     print("Value with key c: {}".format(h.get_value("c")))
 
+    h.modify("f", 6)
+    print("Value with key f: {}".format(h.get_value("f")))
 
 if __name__ == "__main__":
     main()
