@@ -124,5 +124,8 @@ def main():
     h.modify("f", 6)
     print("Value with key f: {}".format(h.get_value("f")))
 
+    print("Index of value with key 'e': {}".format(h.hash("e")))
+    print("Index of value with key 'a': {}".format(h.hash("a")))
+
 if __name__ == "__main__":
     main()
