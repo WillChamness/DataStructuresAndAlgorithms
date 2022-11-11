@@ -19,9 +19,9 @@ class HashTable:
     def __init__(self, size=10):
         self.size = size # i.e. m
         self.item_count = 0 # i.e. n
-        self.table = []
+        self.table = [None] * size
         for i in range(size):
-            self.table.append(LinkedList())
+            self.table[i] = LinkedList()
 
     def hash(self, key):
         """ 
