@@ -91,10 +91,10 @@ class HashTable:
         
         old_table = self.table
         self.size *= 2
-        self.table = []
+        self.table = [None] * self.size
         
         for i in range(self.size):
-            self.table.append(LinkedList())
+            self.table[i] = LinkedList()
 
         for i in range(len(old_table)):
             backup = old_table[i].to_list()
