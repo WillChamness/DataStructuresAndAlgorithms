@@ -126,6 +126,8 @@ def main():
 
     print("Index of value with key 'e': {}".format(h.hash("e")))
     print("Index of value with key 'a': {}".format(h.hash("a")))
+    h.add("if", 100)
+    print("Index of value with key 'if': {}".format(h.hash("if")))
 
 if __name__ == "__main__":
     main()
