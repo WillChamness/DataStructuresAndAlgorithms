@@ -129,5 +129,12 @@ def main():
     h.add("if", 100)
     print("Index of value with key 'if': {}".format(h.hash("if")))
 
+    h.add("c", 3)
+    h.add("g", 8)
+    h.add("h", 9)
+    h.add("i", 10)
+    h.add("j", 11)
+    print("\nTable should have rehashed. Here is the new table size: {}".format(h.size))
+
 if __name__ == "__main__":
     main()
