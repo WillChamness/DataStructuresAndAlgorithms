@@ -105,6 +105,8 @@ class HashTable:
 def main():
     import random as r
     h = HashTable()
+
+    # Initialize hash table with various key/vaule pairs
     h.add("a", 1)
     h.add("b", 2)
     h.add("c", 3)
