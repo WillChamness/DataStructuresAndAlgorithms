@@ -112,13 +112,13 @@ def main():
     h.add("c", 3)
     print("Value with key 'a': {}".format(h.get_value("a")))
     print("Value with key 'c': {}".format(h.get_value("c")))
-    print("Value with key 'd': {}".format(h.get_value("d")))
+    print("Value with key 'd': {}".format(h.get_value("d"))) # does not exist
 
     h.add("d", 4)
     h.add("e", 5)
     h.add("f", 5)
-    print("Value with key 'e': {}".format(h.get_value("e")))
-    print("Value with key 'f': {}".format(h.get_value("f")))
+    print("Value with key 'e': {}".format(h.get_value("e"))) 
+    print("Value with key 'f': {}".format(h.get_value("f"))) # should print same value as above
 
     h.remove("c")
     print("Value with key c: {}".format(h.get_value("c")))
@@ -129,7 +129,7 @@ def main():
     print("Index of value with key 'e': {}".format(h.hash("e")))
     print("Index of value with key 'a': {}".format(h.hash("a")))
     h.add("if", 100)
-    print("Index of value with key 'if': {}".format(h.hash("if")))
+    print("Index of value with key 'if': {}".format(h.hash("if"))) # should be the same as 'a'
 
     h.add("c", 3)
     h.add("g", 8)
