@@ -73,6 +73,7 @@ class HashTable:
         results = self.table[index].remove(key)
         if results is not None: # key/value found. Create new key/value pair
             self.table[index].add(key, new_value)
+            self.item_count -= 1 # not actually adding a new item
     
     def lamda(self):
         """ 
