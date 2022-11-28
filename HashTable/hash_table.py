@@ -138,5 +138,9 @@ def main():
     h.add("j", 11)
     print("\nTable should have rehashed. Here is the new table size: {}".format(h.size))
 
+    # make sure values not changed
+    print("Value with key 'e': {}".format(h.get_value("e")))
+    print("Value with key 'f': {}".format(h.get_value("f")))
+
 if __name__ == "__main__":
     main()
