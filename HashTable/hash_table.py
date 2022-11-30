@@ -143,5 +143,10 @@ def main():
     print("Value with key 'e': {}".format(h.get_value("e")))
     print("Value with key 'f': {}".format(h.get_value("f")))
 
+    # add longer string
+    h.add("abcdefg", 100)
+    print("\nValue with key 'abcdefg': {}".format(h.get_value("abcdefg")))
+    print("Index of value with key 'abcdefg': {}".format(h.hash("abcdefg")))
+
 if __name__ == "__main__":
     main()
