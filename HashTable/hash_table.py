@@ -73,7 +73,6 @@ class HashTable:
         results = self.table[index].remove(key)
         if results is not None: # key/value found. Create new key/value pair
             self.table[index].add(key, new_value)
-            self.item_count -= 1 # not actually adding a new item
     
     def lamda(self):
         """ 
@@ -126,6 +125,7 @@ def main():
 
     h.modify("f", 6)
     print("Value with key f: {}".format(h.get_value("f")))
+    print("Current number of items in hash table: {}".format(h.item_count)) # should be 5
 
     print("Index of value with key 'e': {}".format(h.hash("e")))
     print("Index of value with key 'a': {}".format(h.hash("a")))
@@ -143,7 +143,7 @@ def main():
     print("Value with key 'e': {}".format(h.get_value("e")))
     print("Value with key 'f': {}".format(h.get_value("f")))
 
-    # add longer string
+    # add longer string as key
     h.add("abcdefg", 100)
     print("\nValue with key 'abcdefg': {}".format(h.get_value("abcdefg")))
     print("Index of value with key 'abcdefg': {}".format(h.hash("abcdefg")))
