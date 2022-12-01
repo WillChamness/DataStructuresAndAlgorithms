@@ -61,6 +61,7 @@ class HashTable:
     def get_value(self, key):
         """ 
         Returns the value with the associated key using the above hashing function.
+        Note that table[i] represents a linked list.
         """
         index = self.hash(key)
         return self.table[index].get(key)
@@ -68,6 +69,7 @@ class HashTable:
     def modify(self, key, new_value):
         """ 
         Given a key, set the assocuated value to something new.
+        Note that table[i] represents a linked list.
         """
         index = self.hash(key)
         results = self.table[index].remove(key)
@@ -79,7 +81,7 @@ class HashTable:
         Returns lamda, the ratio of the number of items to the table size.
         The optimal lamda for this implementation is 1.
         """
-        return self.item_count / self.size
+        return self.item_count / self.size # i.e. m / n
 
     def rehash(self):
         """ 
