@@ -17,6 +17,7 @@ This repo is not for those who are new to DSAAs. There are many other resources 
 - Stack
 - Queue
 - Singly & Doubly Linked List
+- Hash table
 
 ## Completed Searching Algorithms:
 - Linear Search
@@ -27,5 +28,4 @@ This repo is not for those who are new to DSAAs. There are many other resources 
 - Insertion Sort
 
 ## Currently working on:
-- Hash table
 - Bubble sort
