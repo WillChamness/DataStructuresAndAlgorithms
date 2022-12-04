@@ -1,11 +1,11 @@
-def bubble_sort(li, choice="recursive"):
+def bubble_sort(li, recurisve=True):
     """ 
     Idea:
     Get the larger values closer to the right of the list by
     continuously swapping the current item with the next if the
     current item is greater.
     """
-    if choice == "recursive":
+    if recurisve:
         _bubble_sort_rec(li, 0, len(li) - 1)
     else:
         _bubble_sort(li)
@@ -41,13 +41,13 @@ def main():
     l = []
     for i in range(10): l.append(r.randint(0, 100))
     print(f"Before: {l}")
-    bubble_sort(l, "a")
+    bubble_sort(l, False) # iterative bubble sort
     print(f"After: {l}")
 
     l = []
     for i in range(10): l.append(r.randint(0, 100))
     print(f"\nBefore: {l}")
-    bubble_sort(l)
+    bubble_sort(l) # recursive bubble sort
     print(f"After: {l}")
 
 if __name__ == "__main__":
