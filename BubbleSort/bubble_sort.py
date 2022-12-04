@@ -1,4 +1,10 @@
 def bubble_sort(li, choice="recursive"):
+    """ 
+    Idea:
+    Get the larger values closer to the right of the list by
+    continuously swapping the current item with the next if the
+    current item is greater.
+    """
     if choice == "recursive":
         _bubble_sort_rec(li, 0, len(li) - 1)
     else:
