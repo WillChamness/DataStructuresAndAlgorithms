@@ -1,4 +1,4 @@
-def binary_search(sorted_list, target, choice="recursive"):
+def binary_search(sorted_list, target, recurisve=True):
     """
     Searches a sorted list of size n.
     Time complexity: O(log(n))
@@ -27,7 +27,7 @@ def binary_search(sorted_list, target, choice="recursive"):
     index is not an integer. 3 == 3, so we have found the target. 
     """
 
-    if choice == "recursive":
+    if recurisve:
         return _binray_search_rec(sorted_list, target, 0, len(sorted_list) - 1)
     else:
         return _binray_search(sorted_list, target)
@@ -72,11 +72,11 @@ def main():
     print(binary_search(list2, 10)) # 9
     print(binary_search(list2, 1)) # 0
     print(binary_search([], 1000)) # not found; -1
-    print(binary_search(list1, 3, "a")) # 2
-    print(binary_search(list1, 9, "a")) # 8
-    print(binary_search(list2, 3, "a")) # 2
-    print(binary_search(list2, 9, "a")) # 8
-    print(binary_search([], 10, "a")) # not found; -1
+    print(binary_search(list1, 3, False)) # 2
+    print(binary_search(list1, 9, False)) # 8
+    print(binary_search(list2, 3, False)) # 2
+    print(binary_search(list2, 9, False)) # 8
+    print(binary_search([], 10, False)) # not found; -1
 
 
 if __name__ == "__main__":
