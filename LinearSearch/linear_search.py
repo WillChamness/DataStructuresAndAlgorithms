@@ -1,4 +1,4 @@
-def linear_search(li, target, choice="recursive"):
+def linear_search(li, target, recursive=True):
     """ 
     Searches a list of size n.
     Time complexity: O(n)
@@ -23,7 +23,7 @@ def linear_search(li, target, choice="recursive"):
     the target has been found.
     """
 
-    if choice == "recursive":
+    if recursive:
         return _linear_search_rec(li, target, 0)
     else:
         return _linear_search(li, target)
@@ -52,10 +52,10 @@ def main():
     print(linear_search(l2, 5)) # index 4
     print(linear_search([], 1000)) # not found; -1
     print(linear_search(l2, 1000)) # not found; -1
-    print(linear_search(l1, 7, "a")) # index 6
-    print(linear_search(l2, 5, "a")) # index 4
-    print(linear_search(l2, 1000, "a")) # not found; -1
-    print(linear_search([], 10000, "a")) # not found; -1
+    print(linear_search(l1, 7, False)) # index 6
+    print(linear_search(l2, 5, False)) # index 4
+    print(linear_search(l2, 1000, False)) # not found; -1
+    print(linear_search([], 10000, False)) # not found; -1
 
 
 
