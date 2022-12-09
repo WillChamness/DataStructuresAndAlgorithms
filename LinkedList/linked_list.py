@@ -57,8 +57,8 @@ class LinkedList:
         current_node = self.head
         current_index = 0
         while current_index != index - 1: # Find the node at index i-1
-            if current_node.next is None:
-                current_node.next = self.LLNode(item, None) # End of list was reached before i-th index. Create new node at the end. Return early
+            if current_node.next is None: # End of list was reached before i-th index. Create new node at the end. Return early
+                current_node.next = self.LLNode(item, None) 
                 return
             else:
                 current_index = current_index + 1
