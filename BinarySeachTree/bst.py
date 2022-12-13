@@ -9,3 +9,9 @@ class BST:
         self.root = None
         if first_item is not None:
             self.insert(first_item)
+
+    def insert(self, item):
+        if self.root is None:
+            self.root = self.TreeNode(item)
+        else:
+            self._insert(item, self.root)
