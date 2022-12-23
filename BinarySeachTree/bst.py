@@ -27,3 +27,9 @@ class BST:
                 current_node.right = self.TreeNode(item)
             else:
                 self._insert(item, current_node.right)
+
+    def remove(self, item):
+        if self.root is None:
+            return None
+        else:
+            return self._remove(item, self.root)
