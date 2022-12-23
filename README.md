@@ -26,6 +26,6 @@ This repo is not for those who are new to DSAAs. There are many other resources 
 ## Completed Sorting Algorithms:
 - Selection Sort
 - Insertion Sort
+- Bubble sort
 
 ## Currently working on:
-- Bubble sort
