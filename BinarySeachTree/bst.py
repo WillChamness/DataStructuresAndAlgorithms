@@ -56,3 +56,13 @@ class BST:
                 current_node = current_node.right
             else: # case where node has no children
                 current_node = None
+
+    def depth_first_search(self, traversal=0):
+        results = []
+        if traversal < 0:
+            self._pre_order_traversal(self.root, results)
+        elif traversal > 0:
+            self._post_order_traversal(self.root, results)
+        else:
+            self._in_order_traversal(self.root, results)
+        return results
