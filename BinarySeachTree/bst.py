@@ -44,7 +44,7 @@ class BST:
         else: 
             if current_node.left is not None and current_node.right is not None: # case where node has two children
                 # Go right then all the way left. You could also go left then all the way right instead. 
-                # This will guarentee an item less than the current node
+                # This will guarantee an item less than the current node
                 pointer = current_node.right
                 while pointer.left is not None:
                     pointer = pointer.left
