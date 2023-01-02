@@ -41,20 +41,20 @@ class BST:
         elif item > current_node.item:
             if current_node.right is not None:
                 self._remove(item, current_node.right)
-        else: 
-            if current_node.left is not None and current_node.right is not None: # case where node has two children
-                # Go right then all the way left. You could also go left then all the way right instead. 
+        else:
+            if current_node.left is not None and current_node.right is not None:  # case where node has two children
+                # Go right then all the way left. You could also go left then all the way right instead.
                 # This will guarantee an item less than the current node
                 pointer = current_node.right
                 while pointer.left is not None:
                     pointer = pointer.left
-                current_node.item = pointer.item # change node's value to the pointer's value
-                pointer = None # remove the pointer
-            elif current_node.left is not None and current_node.right is None: # case where node has one child
+                current_node.item = pointer.item  # change node's value to the pointer's value
+                pointer = None  # remove the pointer
+            elif current_node.left is not None and current_node.right is None:  # case where node has one child
                 current_node = current_node.left
-            elif current_node.right is not None and current_node.left is None: # case where node has one child
+            elif current_node.right is not None and current_node.left is None:  # case where node has one child
                 current_node = current_node.right
-            else: # case where node has no children
+            else:  # case where node has no children
                 current_node = None
 
     def depth_first_search(self, traversal=0):
@@ -78,3 +78,9 @@ class BST:
             self._in_order_traversal(current_node.left, li)
             li.append(current_node.item)
             self._in_order_traversal(current_node.right, li)
+
+    def _post_order_traversal(self, current_node, li):
+        if current_node is not None:
+            self._post_order_traversal(current_node.left, li)
+            self._post_order_traversal(current_node.right, li)
+            li.append(current_node.item)
