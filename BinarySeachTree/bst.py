@@ -99,3 +99,9 @@ class BST:
             if parent.right is not None: q.enqueue(parent.right)
 
         return results
+
+    def _pre_order_traversal(self, current_node, li):
+        if current_node is not None:
+            li.append(current_node.item)
+            self._pre_order_traversal(current_node.left, li)
+            self._pre_order_traversal(current_node.right, li)
