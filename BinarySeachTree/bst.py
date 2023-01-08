@@ -105,3 +105,18 @@ class BST:
             li.append(current_node.item)
             self._pre_order_traversal(current_node.left, li)
             self._pre_order_traversal(current_node.right, li)
+
+    def breadth_first_search(self):
+        from queue_list import QueueList
+        import sys
+        results = []
+        q = QueueList(sys.maxsize)
+        q.enqueue(self.root)
+
+        while not q.is_empty():
+            parent = q.dequeue()
+            results.append(parent.item)
+            if parent.left is not None: q.enqueue(parent.left)
+            if parent.right is not None: q.enqueue(parent.right)
+
+        return results
