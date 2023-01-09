@@ -35,7 +35,7 @@ class QueueList:
     Enqueuing 2, you now have [1, 2].
     Enqueuing 3, you now have [1, 2, 3].
     Enqueuing 4, you now have [1, 2, 3, 4].
-    Enququing 5, you now have [1, 2, 3, 4, 5].
+    Enqueuing 5, you now have [1, 2, 3, 4, 5].
 
     Dequeuing, you have processed 1. Now you have [2, 3, 4, 5].
     Dequeuing, you have processed 2. Now you have [3, 4, 5].
