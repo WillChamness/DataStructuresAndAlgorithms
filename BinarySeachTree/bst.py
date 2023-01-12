@@ -120,3 +120,26 @@ class BST:
             if parent.right is not None: q.enqueue(parent.right)
 
         return results
+
+
+def main():
+    import random as r 
+    t = BST()
+
+    before = []
+    for _ in range(10):
+        before.append(r.randint(0, 100))
+    print(f"Before: {before}")
+
+    for item in before:
+        t.insert(item) # reminder: tree will discard duplicates
+
+    print(f"Pre-order traversal: {t.depth_first_search(-1)}")
+    print(f"In-order traversal: {t.depth_first_search()}")
+    print(f"Post-order traversal: {t.depth_first_search(1)}")
+
+    print(f"Breadth-first search: {t.breadth_first_search()}")
+
+
+if __name__ == "__main__":
+    main()
