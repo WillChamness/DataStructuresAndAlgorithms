@@ -29,3 +29,4 @@ This repo is not for those who are new to DSAAs. There are many other resources 
 - Bubble sort
 
 ## Currently working on:
+- Binary Search Tree
