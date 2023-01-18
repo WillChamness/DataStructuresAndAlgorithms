@@ -162,7 +162,7 @@ def main():
     lst = []
     for i in range(h.size):
         lst.append(h.table[i].to_list())
-    print(lst) # 9 empty list and 1 list containint all key/value pairs
+    print(lst) # 9 empty lists and 1 list containing all key/value pairs
 
     # delete a pair in the middle
     h.remove("edd")
