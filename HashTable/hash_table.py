@@ -150,5 +150,27 @@ def main():
     print("\nValue with key 'abcdefg': {}".format(h.get_value("abcdefg")))
     print("Index of value with key 'abcdefg': {}".format(h.hash("abcdefg")))
 
+    # reset hash table
+    h = HashTable()
+    # add multiple keys whose hash is 1
+    h.add("e", 1)
+    h.add("ed", 2)
+    h.add("edd", 3)
+    h.add("eddd", 4)
+    h.add("edddd", 5)
+    print("\nNew hash table: ")
+    lst = []
+    for i in range(h.size):
+        lst.append(h.table[i].to_list())
+    print(lst) # 9 empty list and 1 list containint all key/value pairs
+
+    # delete a pair in the middle
+    h.remove("edd")
+    print("After removing:")
+    lst = []
+    for i in range(h.size):
+        lst.append(h.table[i].to_list())
+    print(lst)
+
 if __name__ == "__main__":
     main()
