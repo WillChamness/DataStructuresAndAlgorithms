@@ -18,6 +18,7 @@ This repo is not for those who are new to DSAAs. There are many other resources 
 - Queue
 - Singly & Doubly Linked List
 - Hash table
+- Binary Search Tree
 
 ## Completed Searching Algorithms:
 - Linear Search
@@ -29,4 +30,4 @@ This repo is not for those who are new to DSAAs. There are many other resources 
 - Bubble sort
 
 ## Currently working on:
-- Binary Search Tree
+- Tree Sort
