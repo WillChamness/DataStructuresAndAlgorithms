@@ -1,4 +1,6 @@
 from bst import BST
+
+
 def tree_sort(li):
     """ 
     Worst case time complexity: O(n^2) 
@@ -18,16 +20,18 @@ def tree_sort(li):
 
 
 def main():
-    import random as r 
-    l = []
-    for i in range(10):
-        l.append(r.randint(0,100))
+    import random as r
+    l = list([r.randint(1, 100) for _ in range(10)])  # n is even
 
     print(f"Before: {l}")
-
     l = tree_sort(l)
-
     print(f"After: {l}")
+
+    l = list([r.randint(1, 100) for _ in range(11)])  # n is odd
+    print(f"Before: {l}")
+    l = tree_sort(l)
+    print(f"After: {l}")
+
 
 if __name__ == "__main__":
     main()
