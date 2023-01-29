@@ -1,4 +1,4 @@
-def bubble_sort(li, recurisve=True):
+def bubble_sort(li, recursive=True):
     """ 
     Idea:
     Get the larger values closer to the right of the list by
@@ -50,7 +50,7 @@ def bubble_sort(li, recurisve=True):
 
     We have considered all necessary sublists. Therefore the list is now sorted.
     """
-    if recurisve:
+    if recursive:
         _bubble_sort_rec(li, 0, len(li) - 1)
     else:
         _bubble_sort(li)
