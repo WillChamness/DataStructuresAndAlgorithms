@@ -28,6 +28,6 @@ This repo is not for those who are new to DSAAs. There are many other resources 
 - Selection Sort
 - Insertion Sort
 - Bubble sort
+- Tree Sort
 
 ## Currently working on:
-- Tree Sort
