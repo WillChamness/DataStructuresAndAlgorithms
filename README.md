@@ -31,3 +31,4 @@ This repo is not for those who are new to DSAAs. There are many other resources 
 - Tree Sort
 
 ## Currently working on:
+- AVL tree
