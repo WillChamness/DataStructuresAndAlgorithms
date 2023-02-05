@@ -5,3 +5,12 @@ class AVLTree:
             self.left = left
             self.right = right
             self.height = height
+
+        def is_balanced(self):
+            return abs(self.left_child_height() - self.right_child_height()) < 2
+
+        def has_left_child(self):
+            return self.left is not None
+        
+        def has_right_child(self):
+            return self.right is not None
