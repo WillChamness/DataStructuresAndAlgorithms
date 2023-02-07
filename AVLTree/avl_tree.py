@@ -32,3 +32,11 @@ class AVLTree:
 
         def update_height(self):
             self.height = self.max_children_height() + 1
+
+        def update_all_heights(self, current_node):
+            if current_node is not None:
+                if current_node.has_left_child():
+                    current_node.update_all_height(current_node.left)
+                if current_node.has_right_child():
+                    current_node.update_all_height(current_node.right)
+                current_node.update_height()
