@@ -14,3 +14,21 @@ class AVLTree:
         
         def has_right_child(self):
             return self.right is not None
+
+        def left_child_height(self):
+            if self.has_left_child():
+                return self.left.height
+            else:
+                return -1
+
+        def right_child_height(self):
+            if self.has_right_child():
+                return self.right.height
+            else:
+                return -1
+
+        def max_children_height(self):
+            return max(self.left_child_height(), self.right_child_height())
+
+        def update_height(self):
+            self.height = self.max_children_height() + 1
