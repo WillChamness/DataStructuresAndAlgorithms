@@ -40,3 +40,8 @@ class AVLTree:
                 if current_node.has_right_child():
                     current_node.update_all_height(current_node.right)
                 current_node.update_height()
+    
+    def __init__(self, initial_item=None):
+        self.root = None 
+        if initial_item is not None:
+            self.insert(initial_item)
