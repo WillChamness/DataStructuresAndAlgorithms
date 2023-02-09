@@ -45,3 +45,9 @@ class AVLTree:
         self.root = None 
         if initial_item is not None:
             self.insert(initial_item)
+
+    def insert(self, item):
+        if self.root is None:
+            self.root = self.TreeNode(item)
+        else:
+            self.root = self._insert(item, self.root)
