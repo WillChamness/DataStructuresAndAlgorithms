@@ -51,3 +51,17 @@ class AVLTree:
             self.root = self.TreeNode(item)
         else:
             self.root = self._insert(item, self.root)
+
+    def _insert(self, item, current_node):
+        if item < current_node.item:
+            if current_node.has_left_child():
+                self._insert(item, current_node.left)
+            else:
+                current_node.left = self.TreeNode(item)
+        elif item > current_node.item:
+            if current_node.has_right_child():
+                self._insert(item, current_node.right)
+            else:
+                current_node.right = self.TreeNode(item)
+
+        current_node = self._rebalance(current_node) # rebalance from the bottom up
