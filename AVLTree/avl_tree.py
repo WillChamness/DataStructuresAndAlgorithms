@@ -65,3 +65,21 @@ class AVLTree:
                 current_node.right = self.TreeNode(item)
 
         current_node = self._rebalance(current_node) # rebalance from the bottom up
+        return current_node
+
+    def _rebalance(self, current_node):
+        if current_node.is_balanced(): 
+            return current_node
+
+        if current_node.left_child_height() > current_node.right_child_height(): # imbalance caused by left child
+            if current_node.left.left_child_height() > current_node.left.right_child_height(): # LL case
+                return self.right_rotate(current_node)
+            else: # otherwise must be LR case
+                current_node.left = self.left_rotate(current_node.left)
+                return self.right_rotate(current_node)
+        else: # imbalance caused by right child
+            if current_node.right.left_child_height() > current_node.right.right_child_height(): # RL case
+                current_node.right = self.right_rotate(current_node.right)
+                return self.left_rotate(current_node)
+            else: # otherwise must be RR case
+                return self.left_rotate(current_node)
