@@ -83,3 +83,15 @@ class AVLTree:
                 return self.left_rotate(current_node)
             else: # otherwise must be RR case
                 return self.left_rotate(current_node)
+
+    def left_rotate(self, current_node):
+        new_parent = current_node.right 
+        rightleft_backup = current_node.right.left 
+
+        new_parent.left = current_node
+        current_node.right = rightleft_backup
+
+        current_node.update_height()
+        new_parent.update_height()
+
+        return new_root
