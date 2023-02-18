@@ -73,18 +73,19 @@ class AVLTree:
 
         if current_node.left_child_height() > current_node.right_child_height(): # imbalance caused by left child
             if current_node.left.left_child_height() > current_node.left.right_child_height(): # LL case
-                return self.right_rotate(current_node)
+                return self._right_rotate(current_node)
             else: # otherwise must be LR case
-                current_node.left = self.left_rotate(current_node.left)
-                return self.right_rotate(current_node)
+                current_node.left = self._left_rotate(current_node.left)
+                return self._right_rotate(current_node)
         else: # imbalance caused by right child
             if current_node.right.left_child_height() > current_node.right.right_child_height(): # RL case
-                current_node.right = self.right_rotate(current_node.right)
-                return self.left_rotate(current_node)
+                current_node.right = self._right_rotate(current_node.right)
+                return self._left_rotate(current_node)
             else: # otherwise must be RR case
-                return self.left_rotate(current_node)
+                return self._left_rotate(current_node)
 
-    def left_rotate(self, current_node):
+
+    def _left_rotate(self, current_node):
         new_parent = current_node.right 
         rightleft_backup = current_node.right.left 
 
@@ -95,3 +96,16 @@ class AVLTree:
         new_parent.update_height()
 
         return new_root
+
+
+    def _right_rotate(self, current_node):
+        new_parent = current_node.left 
+        leftright_backup = current_node.left.right 
+
+        new_parent.right = current_node
+        current_node.left = leftright_backup
+
+        current_node.update_height()
+        new_parent.update_height()
+
+        return new_parent
