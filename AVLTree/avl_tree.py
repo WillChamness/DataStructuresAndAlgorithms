@@ -109,3 +109,10 @@ class AVLTree:
         new_parent.update_height()
 
         return new_parent
+
+    
+    def remove(self, item):
+        if self.root is None:
+            return None
+        else:
+            return self._remove(item, self.root)
