@@ -6,14 +6,18 @@ class AVLTree:
             self.right = right
             self.height = height
 
+
         def is_balanced(self):
             return abs(self.left_child_height() - self.right_child_height()) < 2
+
 
         def has_left_child(self):
             return self.left is not None
         
+
         def has_right_child(self):
             return self.right is not None
+
 
         def left_child_height(self):
             if self.has_left_child():
@@ -21,17 +25,21 @@ class AVLTree:
             else:
                 return -1
 
+
         def right_child_height(self):
             if self.has_right_child():
                 return self.right.height
             else:
                 return -1
 
+
         def max_children_height(self):
             return max(self.left_child_height(), self.right_child_height())
 
+
         def update_height(self):
             self.height = self.max_children_height() + 1
+
 
         def update_all_heights(self, current_node):
             if current_node is not None:
@@ -41,16 +49,19 @@ class AVLTree:
                     current_node.update_all_height(current_node.right)
                 current_node.update_height()
     
+
     def __init__(self, initial_item=None):
         self.root = None 
         if initial_item is not None:
             self.insert(initial_item)
+
 
     def insert(self, item):
         if self.root is None:
             self.root = self.TreeNode(item)
         else:
             self.root = self._insert(item, self.root)
+
 
     def _insert(self, item, current_node):
         if item < current_node.item:
@@ -66,6 +77,7 @@ class AVLTree:
 
         current_node = self._rebalance(current_node) # rebalance from the bottom up
         return current_node
+
 
     def _rebalance(self, current_node):
         if current_node.is_balanced(): 
