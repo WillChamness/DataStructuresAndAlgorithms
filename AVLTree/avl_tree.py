@@ -116,3 +116,28 @@ class AVLTree:
             return None
         else:
             return self._remove(item, self.root)
+
+    
+    def _remove(self, item, current_node):
+        if item < current_node.item:
+            if current_node.left is not None:
+                self._remove(item, current_node.left)
+        elif item > current_node.item:
+            if current_node.right is not None:
+                self._remove(item, current_node.right)
+        else: 
+            if current_node.has_left_child() and current_node.has_right_child():
+                pointer = current_node.right
+                while pointer.left is not None:
+                    pointer = pointer.left
+                current_node.item = pointer.item 
+                pointer = None 
+            elif current_node.has_left_child() and not current_node.has_right_child(): 
+                current_node = current_node.left
+            elif not current_node.has_left_child() and current_node.has_right_child(): 
+                current_node = current_node.right
+            else: 
+                current_node = None
+
+        if current_node is not None:
+            current_node = self._rebalance(current_node)
