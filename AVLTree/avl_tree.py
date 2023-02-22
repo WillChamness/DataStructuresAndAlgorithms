@@ -153,3 +153,14 @@ class AVLTree:
 
         if current_node is not None:
             current_node = self._rebalance(current_node)
+
+    
+    def depth_first_search(self, traversal=0):
+        results = []
+        if traversal < 0:
+            self._pre_order_traversal(self.root, results)
+        elif traversal > 0:
+            self._pre_order_traversal(self.root, results)
+        else:
+            self._in_order_traversal(self.root, results)
+        return results
