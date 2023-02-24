@@ -171,4 +171,10 @@ class AVLTree:
             li.append(current_node.item)
             self._pre_order_traversal(current_node.left, li)
             self._pre_order_traversal(current_node.right, li)
-    
+
+
+    def _in_order_traversal(self, current_node, li):
+        if current_node is not None:
+            self._in_order_traversal(current_node.left, li)
+            li.append(current_node.item)
+            self._in_order_traversal(current_node.right, li)
