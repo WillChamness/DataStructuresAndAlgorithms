@@ -5,16 +5,19 @@ class BST:
             self.left = left
             self.right = right
 
+
     def __init__(self, first_item=None):
         self.root = None
         if first_item is not None:
             self.insert(first_item)
+
 
     def insert(self, item):
         if self.root is None:
             self.root = self.TreeNode(item)
         else:
             self._insert(item, self.root)
+
 
     def _insert(self, item, current_node):
         if item < current_node.item:
@@ -28,11 +31,13 @@ class BST:
             else:
                 self._insert(item, current_node.right)
 
+
     def remove(self, item):
         if self.root is None:
             return None
         else:
             return self._remove(item, self.root)
+
 
     def _remove(self, item, current_node):
         if item < current_node.item:
@@ -57,6 +62,7 @@ class BST:
             else:  # case where node has no children
                 current_node = None
 
+
     def depth_first_search(self, traversal=0):
         results = []
         if traversal < 0:
@@ -67,11 +73,13 @@ class BST:
             self._in_order_traversal(self.root, results)
         return results
 
+
     def _pre_order_traversal(self, current_node, li):
         if current_node is not None:
             li.append(current_node.item)
             self._pre_order_traversal(current_node.left, li)
             self._pre_order_traversal(current_node.right, li)
+
 
     def _in_order_traversal(self, current_node, li):
         if current_node is not None:
@@ -79,11 +87,13 @@ class BST:
             li.append(current_node.item)
             self._in_order_traversal(current_node.right, li)
 
+
     def _post_order_traversal(self, current_node, li):
         if current_node is not None:
             self._post_order_traversal(current_node.left, li)
             self._post_order_traversal(current_node.right, li)
             li.append(current_node.item)
+
 
     def breadth_first_search(self):
         from queue_list import QueueList
@@ -99,6 +109,7 @@ class BST:
             if parent.right is not None: q.enqueue(parent.right)
 
         return results
+
 
     def _pre_order_traversal(self, current_node, li):
         if current_node is not None:
@@ -106,6 +117,7 @@ class BST:
             self._pre_order_traversal(current_node.left, li)
             self._pre_order_traversal(current_node.right, li)
 
+
     def breadth_first_search(self):
         from queue_list import QueueList
         import sys
@@ -120,6 +132,7 @@ class BST:
             if parent.right is not None: q.enqueue(parent.right)
 
         return results
+
 
 
 def main():
