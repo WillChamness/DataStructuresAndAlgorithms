@@ -47,7 +47,7 @@ class BST:
             if current_node.right is not None:
                 self._remove(item, current_node.right)
         else:
-            if current_node.left is not None and current_node.right is not None:  # case where node has two children
+            if (current_node.left is not None) and (current_node.right is not None):  # case where node has two children
                 # Go right then all the way left. You could also go left then all the way right instead.
                 # This will guarantee an item less than the current node
                 pointer = current_node.right
@@ -55,12 +55,30 @@ class BST:
                     pointer = pointer.left
                 current_node.item = pointer.item  # change node's value to the pointer's value
                 pointer = None  # remove the pointer
-            elif current_node.left is not None and current_node.right is None:  # case where node has one child
+            elif (current_node.left is not None) and (current_node.right is None):  # case where node has one child
                 current_node = current_node.left
-            elif current_node.right is not None and current_node.left is None:  # case where node has one child
+            elif (current_node.right is not None) and (current_node.left is None):  # case where node has one child
                 current_node = current_node.right
             else:  # case where node has no children
                 current_node = None
+
+
+    def search(self, item):
+        if self.root is None:
+            return False
+        else:
+            return self._search(item, self.root)
+    
+    
+    def _search(self, item, current_node):
+        if current_node is None:
+            return False
+        if item == current_node.item:
+            return True
+        elif item < current_node.item:
+            return self._search(item, current_node.left)
+        else:
+            return self._search(item, current_node.right)
 
 
     def depth_first_search(self, traversal=0):
@@ -152,6 +170,11 @@ def main():
     print(f"Post-order traversal: {t.depth_first_search(1)}")
 
     print(f"Breadth-first search: {t.breadth_first_search()}")
+
+    t.insert(100)
+    print("Added 100")
+    print(f"Search results for 100: {t.search(100)}")
+    print(f"Search results for 1000: {t.search(1000)}")
 
 
 if __name__ == "__main__":
