@@ -155,6 +155,24 @@ class AVLTree:
             current_node = self._rebalance(current_node)
 
     
+    def search(self, item):
+        if self.root is None:
+            return False
+        else:
+            return self._search(self, item, self.root)
+    
+
+    def _search(self, item, current_node):
+        if current_node is None:
+            return False
+        if item == current_node.item:
+            return True
+        elif item < current_node.item:
+            return self._search(item, current_node.left)
+        else:
+            return self._search(item, current_node.right)
+
+    
     def depth_first_search(self, traversal=0):
         results = []
         if traversal < 0:
