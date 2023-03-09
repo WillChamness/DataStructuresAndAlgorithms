@@ -219,3 +219,18 @@ class AVLTree:
             if parent.right is not None: q.enqueue(parent.right)
 
         return results
+
+
+def main():
+    import random as rd 
+    l = []
+    t = AVLTree()
+    for i in range(10):
+        l.append(rd.randint(0, 100))
+    print("Before:", l)
+    for num in l:
+        t.insert(num) # reminder: tree does not allow duplicates
+    print("In order traversal:", t.depth_first_search())
+
+if __name__ == "__main__":
+    main()
