@@ -14,7 +14,9 @@ class HashTable:
 
     See the hash function for an example and "Hash table with chaining.png" for an illustration.
     """
+
     OPTIMAL_LAMDA = 1
+
 
     def __init__(self, size=10):
         self.size = size # i.e. m
@@ -23,10 +25,15 @@ class HashTable:
         for i in range(size):
             self.table[i] = LinkedList()
 
+
     def hash(self, key):
         """ 
         Simple hashing function. Takes a string and returns the total unicode value of each character
         mod the table size. Note that this implementation is far from optimal.
+
+        For this implementation,
+        Time complexity: O(k), where k == len(key)
+        Space complexity: O(k) since a conversion to string takes place 
         """
         result = 0
         s = str(key)
@@ -35,7 +42,8 @@ class HashTable:
         result %= self.size
 
         return result
-    
+
+
     def add(self, key, value):
         """ 
         Adds the key/value pair of to the table using the above hashing function.
@@ -47,7 +55,8 @@ class HashTable:
             self.table[index].add(key, value)
             self.item_count += 1
             self.rehash()
-    
+
+
     def remove(self, key):
         """ 
         Removes the key/value pair of the table using the above hashing function. 
@@ -58,6 +67,7 @@ class HashTable:
             self.item_count -= 1
             return self.table[index].remove(key)
 
+
     def get_value(self, key):
         """ 
         Returns the value with the associated key using the above hashing function.
@@ -65,7 +75,8 @@ class HashTable:
         """
         index = self.hash(key)
         return self.table[index].get(key)
-    
+
+
     def modify(self, key, new_value):
         """ 
         Given a key, set the assocuated value to something new.
@@ -75,13 +86,15 @@ class HashTable:
         results = self.table[index].remove(key)
         if results is not None: # key/value found. Create new key/value pair
             self.table[index].add(key, new_value)
-    
+
+
     def lamda(self):
         """ 
         Returns lamda, the ratio of the number of items to the table size.
         The optimal lamda for this implementation is 1.
         """
         return self.item_count / self.size # i.e. m / n
+
 
     def rehash(self):
         """ 
@@ -103,6 +116,8 @@ class HashTable:
             for j in range(len(backup)):
                 self.add(backup[j][0], backup[j][1])
                 self.item_count -= 1 # not actually adding a new key/value pair
+
+
 
 def main():
     import random as r
@@ -141,7 +156,7 @@ def main():
     h.add("j", 11)
     print("\nTable should have rehashed. Here is the new table size: {}".format(h.size))
 
-    # make sure values not changed
+    # make sure values have not changed
     print("Value with key 'e': {}".format(h.get_value("e")))
     print("Value with key 'f': {}".format(h.get_value("f")))
 
