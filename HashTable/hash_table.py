@@ -48,6 +48,9 @@ class HashTable:
         """ 
         Adds the key/value pair of to the table using the above hashing function.
         Note that table[i] represents a linked list.
+
+        Time complexity: O(1)
+        Space complexity: O(1)
         """
         index = self.hash(key)
         
@@ -61,6 +64,9 @@ class HashTable:
         """ 
         Removes the key/value pair of the table using the above hashing function. 
         Note that table[i] represents a linked list.
+
+        Time complexity: O(1)
+        Space complexity: O(1)
         """
         index = self.hash(key)
         if self.table[index].find(key) >= 0: # key/value found. Extract value
@@ -72,6 +78,9 @@ class HashTable:
         """ 
         Returns the value with the associated key using the above hashing function.
         Note that table[i] represents a linked list.
+
+        Time complexity: O(k), where k == len(table[i])
+        Space complexity: O(1)
         """
         index = self.hash(key)
         return self.table[index].get(key)
@@ -79,8 +88,11 @@ class HashTable:
 
     def modify(self, key, new_value):
         """ 
-        Given a key, set the assocuated value to something new.
+        Given a key, set the associated value to something new.
         Note that table[i] represents a linked list.
+
+        Time complexity: O(k), where k == len(table)
+        Space complexity: O(1)
         """
         index = self.hash(key)
         results = self.table[index].remove(key)
@@ -100,6 +112,9 @@ class HashTable:
         """ 
         Copies the data to a new table. The new size is twice the previous. Must perform 
         above hashing function with new table size.
+
+        Time complexity: O(n)
+        Space complexity: O(n)
         """ 
         if self.lamda() <= HashTable.OPTIMAL_LAMDA:
             return
