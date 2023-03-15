@@ -178,7 +178,7 @@ class AVLTree:
         if traversal < 0:
             self._pre_order_traversal(self.root, results)
         elif traversal > 0:
-            self._pre_order_traversal(self.root, results)
+            self._post_order_traversal(self.root, results)
         else:
             self._in_order_traversal(self.root, results)
         return results
