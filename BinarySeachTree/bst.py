@@ -1,5 +1,16 @@
 class BST:
+    """ 
+    A data structure in which each node contains three items: the data and two 
+    child nodes. Furthermore, each node is bound by a certain rule: all items
+    less than the node's value can be accessed from the node's left child (if 
+    it exists), and items greater than the node's value can be accessed from the
+    node's right child (if it exists). Duplicate values are discarded.
+    """
+
     class TreeNode:
+        """
+        Represents the nodes.
+        """
         def __init__(self, item, left=None, right=None):
             self.item = item
             self.left = left
