@@ -61,7 +61,7 @@ class BST:
         Driver for recursive function _remove()
         """
         if self.root is None:
-            return None
+            return
         else:
             self.root = self._remove(item, self.root)
 
@@ -72,30 +72,38 @@ class BST:
         """
         if current_node is None:
             return None
+
         if item < current_node.item:
             current_node.left = self._remove(item, current_node.left)
             return current_node
+
         elif item > current_node.item:
             current_node.right = self._remove(item, current_node.right)
             return current_node
+
         else:
             if (current_node.left is not None) and (current_node.right is not None):  # case where node has two children
                 # Go right then all the way left. You could also go left then all the way right instead.
-                # This will guarantee an item less than the current node
-                pointer = current_node.right
-                while pointer.left.left is not None:
-                    pointer = pointer.left
-                current_node.item = pointer.left.item  # change node's value to the pointer's value
-                pointer.left = None
-                return pointer
+                # This will guarantee a node that will not violate BST requirements
+                parent = current_node.right
+                child = parent.left
+                while child is not None:
+                    parent = child
+                    child = child.left
+                current_node.item = parent.item  # change node's value to the pointer's value
+                current_node.right = self._remove(current_node.item, current_node.right)
+                return current_node
+
             elif (current_node.left is not None) and (current_node.right is None):  # case where node has one child
-                current_node = current_node.left
-                current_node.left = None
+                current_node.item = current_node.left.item
+                current_node.left = self._remove(current_node.item, current_node.left)
                 return current_node
+
             elif (current_node.right is not None) and (current_node.left is None):  # case where node has one child
-                current_node = current_node.right
-                current_node.right = None
+                current_node.item = current_node.right.item
+                current_node.right = self._remove(current_node.item, current_node.right)
                 return current_node
+                
             else:  # case where node has no children
                 return None
                 
@@ -214,10 +222,23 @@ def main():
     print(f"Search results for 100: {t.search(100)}")
     print(f"Search results for 1000: {t.search(1000)}")
 
-    t.remove(100)
-    print(f"In-order traversal: {t.depth_first_search()} (after removing 100)")
+    t.remove(100) # has no children
+    print(f"breadth first search: {t.depth_first_search()} (after removing 100)")
     t.remove(-1)
-    print(f"In-order traversal: {t.depth_first_search()} (after removing -1)")
+    print(f"breadth first search: {t.depth_first_search()} (after removing -1)")
+
+    t = BST()
+    print("before:", [100, 50, 200, 25, 75, 150])
+    for n in [100, 50, 200, 25, 75, 150]:
+        t.insert(n)
+
+    t.remove(200) # has one child
+    print("Removing 200 from before:", t.breadth_first_search())
+    t = BST()
+    for n in [100, 50, 200, 25, 75, 150]:
+        t.insert(n)
+    t.remove(50) # has two children
+    print("Removing 50 from before:", t.breadth_first_search())
 
 
 if __name__ == "__main__":
