@@ -68,7 +68,12 @@ class BST:
 
     def _remove(self, item, current_node):
         """
-        Recursively descends down the tree to delete the node
+        Recursively descends down the tree to delete the node. When it reaches
+        the target node (assuming it exists), swap the item with another node's
+        and delete the other node.
+
+        Time complexity: O(n)
+        Space complexity: O(1)
         """
         if current_node is None:
             return None
@@ -105,8 +110,7 @@ class BST:
                 return current_node
                 
             else:  # case where node has no children
-                return None
-                
+                return None 
 
 
     def search(self, item):
