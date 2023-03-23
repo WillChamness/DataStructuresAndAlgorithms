@@ -41,7 +41,7 @@ class BST:
         item is greater than the current node's item, the item
         must be to the right of the current node.
 
-        Time complexity: O(n)
+        Time complexity: O(log(n))
         Space complexity: O(1)
         """
         if item < current_node.item:
@@ -72,7 +72,7 @@ class BST:
         the target node (assuming it exists), swap the item with another node's
         and delete the other node.
 
-        Time complexity: O(n)
+        Time complexity: O(log(n))
         Space complexity: O(1)
         """
         if current_node is None:
@@ -113,22 +113,29 @@ class BST:
                 return None 
 
 
-    def search(self, item):
+    def search(self, target):
+        """ 
+        Driver for recursive function _search()
+        """
         if self.root is None:
             return False
         else:
-            return self._search(item, self.root)
+            return self._search(target, self.root)
     
     
-    def _search(self, item, current_node):
+    def _search(self, target, current_node):
+        """ 
+        Traverse the tree until the target is found or until
+        a null node is reached. 
+        """
         if current_node is None:
             return False
-        if item == current_node.item:
+        if target == current_node.item:
             return True
-        elif item < current_node.item:
-            return self._search(item, current_node.left)
+        elif target < current_node.item:
+            return self._search(target, current_node.left)
         else:
-            return self._search(item, current_node.right)
+            return self._search(target, current_node.right)
 
 
     def depth_first_search(self, traversal=0):
