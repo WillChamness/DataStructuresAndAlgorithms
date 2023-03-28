@@ -127,6 +127,9 @@ class BST:
         """ 
         Traverse the tree until the target is found or until
         a null node is reached. 
+
+        Time complexity: O(log(n))
+        Space complexity: O(1)
         """
         if current_node is None:
             return False
