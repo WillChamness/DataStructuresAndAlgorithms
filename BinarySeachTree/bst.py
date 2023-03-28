@@ -139,6 +139,20 @@ class BST:
 
 
     def depth_first_search(self, traversal=0):
+        """ 
+        A way to visit every node once. Three kinds of 
+        depth_first_search:
+
+        - Pre-order traversal
+        - In-order traversal
+        - Post-order traversal
+
+        Regardless, the time complexity is O(n). Furthermore,
+        this implementation copies the nodes into a new list
+        to visualize the results, so the space complexity is 
+        O(n). However, you can process each node however you
+        want.
+        """
         results = []
         if traversal < 0:
             self._pre_order_traversal(self.root, results)
@@ -150,6 +164,9 @@ class BST:
 
 
     def _pre_order_traversal(self, current_node, li):
+        """ 
+        Process the node, then process the left and right children.
+        """
         if current_node is not None:
             li.append(current_node.item)
             self._pre_order_traversal(current_node.left, li)
@@ -157,6 +174,9 @@ class BST:
 
 
     def _in_order_traversal(self, current_node, li):
+        """
+        Process the left child, then the node, then the right child.
+        """
         if current_node is not None:
             self._in_order_traversal(current_node.left, li)
             li.append(current_node.item)
@@ -164,6 +184,9 @@ class BST:
 
 
     def _post_order_traversal(self, current_node, li):
+        """ 
+        Process the left and right children, then the node.
+        """
         if current_node is not None:
             self._post_order_traversal(current_node.left, li)
             self._post_order_traversal(current_node.right, li)
