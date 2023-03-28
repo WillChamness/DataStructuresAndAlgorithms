@@ -143,8 +143,8 @@ class BST:
 
     def depth_first_search(self, traversal=0):
         """ 
-        A way to visit every node once. Three kinds of 
-        depth_first_search:
+        A way to visit every node once. There are three kinds of 
+        depth first search:
 
         - Pre-order traversal
         - In-order traversal
@@ -169,6 +169,18 @@ class BST:
     def _pre_order_traversal(self, current_node, li):
         """ 
         Process the node, then process the left and right children.
+        For example, given this tree:
+
+                    100
+                   /   \
+                  50    200
+                 / \    / 
+                25  75 150
+                        \
+                         175
+
+        You would process the nodes in this order:
+        100, 50, 25, 75, 200, 150, 175
         """
         if current_node is not None:
             li.append(current_node.item)
@@ -179,6 +191,21 @@ class BST:
     def _in_order_traversal(self, current_node, li):
         """
         Process the left child, then the node, then the right child.
+        For example, given this tree:
+
+                    100
+                   /   \
+                  50    200
+                 / \    / 
+                25  75 150
+                        \
+                         175
+
+        You would process the nodes in this order:
+        25, 50, 75, 100, 150, 175, 200
+
+        Notably, this returns an array of all items in sorted order.
+        See TreeSort for more details.
         """
         if current_node is not None:
             self._in_order_traversal(current_node.left, li)
@@ -189,6 +216,18 @@ class BST:
     def _post_order_traversal(self, current_node, li):
         """ 
         Process the left and right children, then the node.
+        For example, given this tree:
+
+                    100
+                   /   \
+                  50    200
+                 / \    / 
+                25  75 150
+                        \
+                         175
+
+        You would process the nodes in this order:
+        25, 75, 50, 175, 150, 200, 100
         """
         if current_node is not None:
             self._post_order_traversal(current_node.left, li)
@@ -197,29 +236,32 @@ class BST:
 
 
     def breadth_first_search(self):
-        from queue_list import QueueList
-        import sys
-        results = []
-        q = QueueList(sys.maxsize)
-        q.enqueue(self.root)
+        """ 
+        A way to visit every node once. Process the nodes from
+        top to bottom. For example, given the tree:
 
-        while not q.is_empty():
-            parent = q.dequeue()
-            results.append(parent.item)
-            if parent.left is not None: q.enqueue(parent.left)
-            if parent.right is not None: q.enqueue(parent.right)
+                    100
+                   /   \
+                  50    200
+                 / \    / 
+                25  75 150
+                        \
+                         175
 
-        return results
+        You would process the nodes in this order:
+        100, 50, 200, 25, 75, 150, 175
 
+        The code follows this procedure:
+        - initialize a queue to contain the root
+        - while you still have nodes to process, process the node
+          at the front of the queue and add the node's children
 
-    def _pre_order_traversal(self, current_node, li):
-        if current_node is not None:
-            li.append(current_node.item)
-            self._pre_order_traversal(current_node.left, li)
-            self._pre_order_traversal(current_node.right, li)
-
-
-    def breadth_first_search(self):
+        Time complexity: O(n)
+        Space complexity: O(n)
+        """
+        if self.root is None:
+            return []
+            
         from queue_list import QueueList
         import sys
         results = []
