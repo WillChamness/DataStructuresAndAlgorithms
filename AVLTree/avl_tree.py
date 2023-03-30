@@ -66,16 +66,18 @@ class AVLTree:
     def _insert(self, item, current_node):
         if item < current_node.item:
             if current_node.has_left_child():
-                self._insert(item, current_node.left)
+                current_node.left = self._insert(item, current_node.left)
             else:
                 current_node.left = self.TreeNode(item)
         elif item > current_node.item:
             if current_node.has_right_child():
-                self._insert(item, current_node.right)
+                current_node.right = self._insert(item, current_node.right)
             else:
                 current_node.right = self.TreeNode(item)
 
-        current_node = self._rebalance(current_node) # rebalance from the bottom up
+        current_node.update_height()
+        current_node = self._rebalance(current_node)
+
         return current_node
 
 
@@ -86,13 +88,16 @@ class AVLTree:
         if current_node.left_child_height() > current_node.right_child_height(): # imbalance caused by left child
             if current_node.left.left_child_height() > current_node.left.right_child_height(): # LL case
                 return self._right_rotate(current_node)
+
             else: # otherwise must be LR case
                 current_node.left = self._left_rotate(current_node.left)
                 return self._right_rotate(current_node)
+
         else: # imbalance caused by right child
             if current_node.right.left_child_height() > current_node.right.right_child_height(): # RL case
                 current_node.right = self._right_rotate(current_node.right)
                 return self._left_rotate(current_node)
+
             else: # otherwise must be RR case
                 return self._left_rotate(current_node)
 
@@ -107,7 +112,7 @@ class AVLTree:
         current_node.update_height()
         new_parent.update_height()
 
-        return new_root
+        return new_parent
 
 
     def _right_rotate(self, current_node):
@@ -125,41 +130,62 @@ class AVLTree:
     
     def remove(self, item):
         if self.root is None:
-            return None
+            return 
         else:
-            return self._remove(item, self.root)
+            self.root = self._remove(item, self.root)
 
     
     def _remove(self, item, current_node):
-        if item < current_node.item:
-            if current_node.left is not None:
-                self._remove(item, current_node.left)
-        elif item > current_node.item:
-            if current_node.right is not None:
-                self._remove(item, current_node.right)
-        else: 
-            if current_node.has_left_child() and current_node.has_right_child():
-                pointer = current_node.right
-                while pointer.left is not None:
-                    pointer = pointer.left
-                current_node.item = pointer.item 
-                pointer = None 
-            elif current_node.has_left_child() and not current_node.has_right_child(): 
-                current_node = current_node.left
-            elif not current_node.has_left_child() and current_node.has_right_child(): 
-                current_node = current_node.right
-            else: 
-                current_node = None
+        """
+        Recursively descends down the tree to delete the node. 
+        """
+        if current_node is None:
+            return None
 
-        if current_node is not None:
-            current_node = self._rebalance(current_node)
+        if item < current_node.item:
+            current_node.left = self._remove(item, current_node.left)
+            return current_node
+
+        elif item > current_node.item:
+            current_node.right = self._remove(item, current_node.right)
+            return current_node
+
+        else:
+            if current_node.has_left_child() and current_node.has_right_child():  # case where node has two children
+                # Go right then all the way left. You could also go left then all the way right instead.
+                # This will guarantee a node that will not violate BST requirements
+                parent = current_node.right
+                child = parent.left
+                while child is not None:
+                    parent = child
+                    child = child.left
+                current_node.item = parent.item  # change node's value to the pointer's value
+                current_node.right = self._remove(current_node.item, current_node.right)
+                return current_node
+
+            elif current_node.has_left_child() and not current_node.has_right_child():  # case where node has one child
+                current_node.item = current_node.left.item
+                current_node.left = self._remove(current_node.item, current_node.left)
+                return current_node
+
+            elif not current_node.has_left_child() and current_node.has_right_child():  # case where node has one child
+                current_node.item = current_node.right.item
+                current_node.right = self._remove(current_node.item, current_node.right)
+                return current_node
+
+            else:  # case where node has no children
+                return None
+        
+    
+        current_node.update_height()
+        current_node = self._rebalance(current_node)
 
     
     def search(self, item):
         if self.root is None:
             return False
         else:
-            return self._search(self, item, self.root)
+            return self._search(item, self.root)
     
 
     def _search(self, item, current_node):
@@ -230,7 +256,35 @@ def main():
     print("Before:", l)
     for num in l:
         t.insert(num) # reminder: tree does not allow duplicates
-    print("In order traversal:", t.depth_first_search())
+        print("Current order of tree:", t.breadth_first_search())
+
+    t.insert(100)
+    print(t.breadth_first_search())
+    print("100 search results:", t.search(100))
+    print("1000 search results:", t.search(1000))
+
+    t = AVLTree()
+    for n in [100, 50, 200, 25, 75, 150]: # is an AVL Tree
+        t.insert(n)
+    print("Tree before:", t.breadth_first_search())
+
+    t.remove(100) # has two children
+
+    print("After removing 100:", t.breadth_first_search())
+
+    t = AVLTree()
+    for n in [100, 50, 200, 25, 75, 150]: 
+        t.insert(n)
+    
+    t.remove(200) # has one child
+    print("After removing 200:", t.breadth_first_search())
+
+    t = AVLTree()
+    for n in [100, 50, 200, 25, 75, 150]: 
+        t.insert(n)
+    t.remove(150) # has no children
+    print("After removing 150:", t.breadth_first_search())
+
 
 if __name__ == "__main__":
     main()
