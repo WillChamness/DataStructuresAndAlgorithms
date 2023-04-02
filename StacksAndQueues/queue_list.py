@@ -43,6 +43,7 @@ class QueueList:
     Dequeuing, you have processed 4. Now you have [5].
     Dequeuing, you have processed 5. Now you have [].
     """
+
     def __init__(self, size=10, first_item=None):
         self.head = 0 # points to the next item to be released
         self.tail = 0 # points to the next available empty slot
@@ -52,6 +53,7 @@ class QueueList:
 
         if first_item is not None:
             self.enqueue(first_item)
+
 
     def enqueue(self, item):
         """
@@ -66,6 +68,7 @@ class QueueList:
         self.counter = self.counter + 1
         self.tail = (self.tail + 1) % self.size
 
+
     def dequeue(self):
         """
         Idea:
@@ -79,7 +82,8 @@ class QueueList:
         self.head = (self.head + 1) % self.size
         self.counter = self.counter - 1
         return item
-    
+
+
     def next(self):
         """ 
         Similar to dequeue, but the item is not released from the queue.
@@ -89,12 +93,14 @@ class QueueList:
             return None
         return self.q[self.head]
 
+
     def is_empty(self):
         """ 
         Returns true when the item count is zero.
         """
         return self.counter == 0
-    
+
+
     def is_full(self):
         """ 
         Returns true when the item count is
