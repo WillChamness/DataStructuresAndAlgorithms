@@ -54,13 +54,11 @@ def _binary_search_rec(l, target, lo, hi):
         return -1
 
     mid = (lo + hi) // 2
-    if l[mid] == target:  # target found, return its index
-        return mid
-    # target is in the left half, perform binary search on the left half of the sublist
-    elif target < l[mid]:
-        return _binary_search_rec(l, target, lo, mid - 1)
-    else:
-        # target is in the right half, perform binary search on the right half of the sublist
+    if l[mid] == target: # target found, return its index  
+        return mid 
+    elif target < l[mid]: # target is in the left half, perform binary search on the left half of the sublist
+        return _binary_search_rec(l, target, lo, mid - 1) 
+    else: # target is in the right half, perform binary search on the right half of the sublist
         return _binary_search_rec(l, target, mid + 1, hi)
 
 
