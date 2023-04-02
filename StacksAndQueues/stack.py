@@ -43,6 +43,7 @@ class Stack:
         if first_item is not None:
             self.s.push(first_item)
 
+
     def push(self, item):
         """
         Idea:
@@ -60,6 +61,7 @@ class Stack:
 
         self.top = self.top + 1
 
+
     def pop(self):
         """
         Idea:
@@ -72,7 +74,8 @@ class Stack:
 
         self.top = self.top - 1
         return self.s[self.top]
-    
+
+
     def peek(self):
         """
         Similar to popping, but the element is not released from the stack. 
@@ -82,6 +85,7 @@ class Stack:
             return None
         return self.s[self.top - 1]
 
+
     def is_empty(self):
         """ 
         Checks to see if there is nothing in the stack. Top represents the
@@ -89,6 +93,7 @@ class Stack:
         slot in the stack is empty. Consequently the stack is empty.
         """
         return self.top <= 0 
+
 
     def is_full(self):
         """
@@ -98,6 +103,7 @@ class Stack:
         full.
         """
         return self.top >= self.size
+
 
 
 def main():
