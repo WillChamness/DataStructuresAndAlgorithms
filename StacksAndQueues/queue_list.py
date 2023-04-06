@@ -109,6 +109,17 @@ class QueueList:
         return self.counter == self.size
 
 
+    def clear(self, *, confirm=False):
+        """
+        Destroys the queue.
+        """
+        if confirm:
+            self.q = [None] * self.size
+            self.head = 0
+            self.tail = 0
+            self.counter = 0
+
+
 
 def main():
     q = QueueList()
@@ -153,6 +164,8 @@ def main():
         after += q.dequeue()
     
     print("After: " + after)
+    q.clear(confirm=True)
+    print("After clearing:", q.q)
 
     print("\nThis will cause an exception:")
     q = QueueList(1)
