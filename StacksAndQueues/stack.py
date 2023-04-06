@@ -32,14 +32,14 @@ class Stack:
     Popping from the stack, you have processed 5. Now you have [1, 2, 3, 4].
     Popping from the stack, you have processed 4. Now you have [1, 2, 3].
     Popping from the stack, you have processed 3. Now you have [1, 2].
-    Popping from the stack, you have procesesd 2. Now you have [1].
+    Popping from the stack, you have processed 2. Now you have [1].
     Popping from the stack, you have processed 1. Now you have [].
     """
 
     def __init__(self, size=10, first_item=None):
-        self.s = []
         self.top = 0 # represents the first empty slot in the list
         self.size = abs(size) # do not allow negative sizes
+        self.s = [None] * self.size
         if first_item is not None:
             self.s.push(first_item)
 
@@ -53,13 +53,8 @@ class Stack:
         if self.is_full():
             raise Exception("Stack is full.")
         
-        # Must append to the list when initially creating the stack.
-        if len(self.s) <= self.top:
-            self.s.append(item)
-        else:
-            self.s[self.top] = item
-
-        self.top = self.top + 1
+        self.s[self.top] = item
+        self.top += 1
 
 
     def pop(self):
@@ -72,7 +67,7 @@ class Stack:
         if self.is_empty():
             raise Exception("Stack is empty")
 
-        self.top = self.top - 1
+        self.top -= 1
         return self.s[self.top]
 
 
@@ -105,6 +100,15 @@ class Stack:
         return self.top >= self.size
 
 
+    def clear(self, *, confirm=False):
+        """ 
+        Destroys the stack.
+        """
+        if confirm:
+            self.s = [None] * self.size
+            self.top = 0
+
+
 
 def main():
     string = "abcdefg"
@@ -130,6 +134,8 @@ def main():
         result += s.pop()
     
     print("After: " + result)
+    s.clear(confirm=True)
+    print("After clearing:", s.s)
 
 
     print("\nThis will cause an exception:")
