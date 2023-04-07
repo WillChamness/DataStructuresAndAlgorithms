@@ -6,7 +6,7 @@ class DoublyLinkedList:
     Time complexity of searching: O(n)
     Time complexity of inserting/removing first: O(1)
     Time complexity of inserting/removing last: O(1)
-    Time complexity of isnerting/removing anywhere else: O(n)
+    Time complexity of inserting/removing anywhere else: O(n)
     """    
     class DLLNode:
         """
@@ -132,7 +132,7 @@ class DoublyLinkedList:
         """
         if self.head is None and self.tail is None:
             return None
-        elif self.head is None:
+        elif self.head is None: # sanity check
             return self.remove_first()
         
         item = self.tail.item
@@ -141,12 +141,13 @@ class DoublyLinkedList:
         return item
     
     
-    def clear(self):
+    def clear(self, *, confirm=False):
         """ 
         Destroys the entire list.
         """
-        self.head = None
-        self.tail = None
+        if confirm:
+            self.head = None
+            self.tail = None
 
     
     def get(self, index=0):
@@ -177,7 +178,7 @@ class DoublyLinkedList:
 
     def _find(self, target, current_index, current_node):
         """ 
-        Returns the index of the first occurance of the specified item.
+        Returns the index of the first occurrence of the specified item.
         """
         if current_node is None:
             return -1
@@ -271,7 +272,7 @@ def main():
     print("\nLL after removing last index: " + str(l.to_list()))
     print("In reverse: " + str(l.to_list_reverse()))
 
-    l.clear()
+    l.clear(confirm=True)
     print("\nLL after clearing: " + str(l.to_list()))
 
 

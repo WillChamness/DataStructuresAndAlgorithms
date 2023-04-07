@@ -9,7 +9,7 @@ class LinkedList:
     Time complexity of inserting/removing anywhere else: O(n)
 
     Strategy:
-    Use linear search to access everything. For peeking the recusive version of
+    Use linear search to access everything. For peeking the recursive version of
     linear searching was used. For modifying the non-recursive version was used out of
     necessity due to the complexity.
     """
@@ -148,11 +148,12 @@ class LinkedList:
         return item
         
 
-    def clear(self):
+    def clear(self, *, confirm=False):
         """
         Deletes the entire list.
         """
-        self.head = None
+        if confirm:
+            self.head = None
 
 
     def get(self, index=0):
@@ -264,7 +265,7 @@ def main():
     l.remove(6)
     print("\nNew LL after removing last index: " + str(l.to_list()))
 
-    l.clear()
+    l.clear(confirm=True)
     print("\nLL after clearing: " + str(l.to_list()))
 
 if __name__ == "__main__":
