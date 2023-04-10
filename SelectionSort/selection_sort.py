@@ -43,6 +43,7 @@ def selection_sort(li):
         li[index1] = li[index2]
         li[index2] = temp
 
+
     for i in range(len(li)): # consider the sublist from index i to len(li) - 1
         min_index = i # initially assume the minimum is at index i
         for j in range(i, len(li)): # check all items to the right of i for the smallest item
