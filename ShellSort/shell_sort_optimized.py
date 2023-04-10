@@ -3,10 +3,12 @@
 
 import math
 
+
 def swap(li, index1, index2):
     temp = li[index1]
     li[index1] = li[index2]
     li[index2] = temp
+
 
 def shell_sort_hibbard(li):
     """ 
