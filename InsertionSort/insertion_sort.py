@@ -24,7 +24,7 @@ def insertion_sort(li):
     Consider the sublist from index 0 to 1: [3, 1]. Start at the end. 
     Compare to the previous value. 1 < 3, so swap the two. Now you have
     [1, 3]. Now 1 is at the beginning of the list, so the list is sorted.
-    Refect this in the original list: [1, 3, 2, 4, 0].
+    Reflect this in the original list: [1, 3, 2, 4, 0].
 
     Consider the sublist from index 0 to 2: [1, 3, 2]. Start at the end.
     Compare to the previous value. 2 < 3, so swap the two. Now you have
@@ -51,10 +51,11 @@ def insertion_sort(li):
         temp = li[index1]
         li[index1] = li[index2]
         li[index2] = temp
-    
+
+
     for i in range(1, len(li)): # Consider the sublist from 0 to i (no need to consider the sublist from 0 to 0). 
         for j in range(i, 0, -1): # start at the end of the sublist, move pointer left if swapped and stop if the pointer reaches 0.
-            # move this object left if it is less than the previous. Then repeat.
+            # move this object left if it is less than the previous.
             if li[j] < li[j-1]: 
                 swap(li, j, j-1)
             # otherwise, you have sorted everything to the left of i. No need to continue this iteration. 
