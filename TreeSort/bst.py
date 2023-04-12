@@ -5,8 +5,10 @@ class BST:
             self.l = l
             self.r = r
 
+
     def __init__(self):
         self.root = None
+
 
     def insert(self, item):
         if self.root is None:
@@ -27,10 +29,12 @@ class BST:
             else:
                 self._insert(item, node.r)
 
+
     def in_order_traversal(self):
         results = []
         self._iot(self.root, results)
         return results
+
 
     def _iot(self, node, li):
         if node is not None:
