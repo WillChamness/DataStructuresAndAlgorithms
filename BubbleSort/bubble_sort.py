@@ -55,6 +55,7 @@ def bubble_sort(li, recursive=True):
     else:
         _bubble_sort(li)
 
+
 def _bubble_sort(li):
     for i in range(len(li) - 1, -1, -1): # consider the sublist from 0 to i (stop at i-1 because you will access i-1 + 1 later)
         for j in range(i): # go until you reach the end of the sublist
