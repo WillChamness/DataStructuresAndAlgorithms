@@ -39,7 +39,7 @@ def shell_sort(li):
      1, 7,
      2, 6,
      4, 0]
-    Conisder the sublists containing items with indeces 0, 2, 4, 6
+    Consider the sublists containing items with indices 0, 2, 4, 6
     and 1, 3, 5, 7: [3, 1, 2, 4] and [5, 7, 6, 0] respectively. Perform 
     insertion sort on each of these sublists: [1, 2, 3, 4] and [0, 5, 6, 7].
     Now take the first item of every sublist from left to right:
@@ -52,7 +52,7 @@ def shell_sort(li):
     Side note: 
     If gap == 1, then you are simply performing insertion sort on the entire list.
     Notice how the lesser numbers have moved closer to the left and the greater 
-    numbers have moved closer to the right. We have achived our goal in this case.
+    numbers have moved closer to the right. We have achieved our goal in this case.
 
     To help visualize the next step, I will display the list as such:
     [1,
@@ -63,7 +63,7 @@ def shell_sort(li):
      6, 
      4, 
      7]. 
-    Consider the sublist with indeces 0, 1, 2, 3, 4, 5, 6, 7:
+    Consider the sublist with indices 0, 1, 2, 3, 4, 5, 6, 7:
     [1, 0, 2, 5, 3, 6, 4, 7]. Perform insertion sort on this sublist:
     [0, 1, 2, 3, 4, 5, 6, 7]. Now take the first item of the sublist:
     [0]. Now append the second item of the sublist: [0, 1]. Now append
