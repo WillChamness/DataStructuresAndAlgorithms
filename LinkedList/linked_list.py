@@ -97,8 +97,8 @@ class LinkedList:
 
     def remove(self, index=0):
         """
-        If the list is empty, return nothing. If the given index is zero, simpty remove the
-        first element. Otherwise move to the node at index i-1. If the retrive the item at index
+        If the list is empty, return nothing. If the given index is zero, simply remove the
+        first element. Otherwise move to the node at index i-1. If the retrieve the item at index
         i and set the (i+1)-th node to the node at index i.
         """
         if self.head is None:
