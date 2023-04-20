@@ -31,7 +31,6 @@ class LinkedList:
 
     def add_first(self, item):
         """ 
-        Idea: 
         If the list is empty, set head to a new node. Otherwise set head to a new node
         and set the old head to the next node.
         """
@@ -43,7 +42,6 @@ class LinkedList:
 
     def add(self, item, index=0):
         """
-        Idea:
         Linearly move to the (i-1)-th node. Then set the i-th node to a new node
         and set the old node to the (i+1)-th node. 
         """
@@ -72,7 +70,6 @@ class LinkedList:
 
     def add_last(self, item):
         """ 
-        Idea:
         If the list is length n, then move to the n-th node. Then add a new node.
         """
         if self.head is None:
@@ -87,7 +84,6 @@ class LinkedList:
 
     def remove_first(self):
         """ 
-        Idea:
         If the list is empty, return nothing. Otherwise retrieve head's item and
         let the next node be the new head.
         """
@@ -101,7 +97,6 @@ class LinkedList:
 
     def remove(self, index=0):
         """
-        Idea:
         If the list is empty, return nothing. If the given index is zero, simpty remove the
         first element. Otherwise move to the node at index i-1. If the retrive the item at index
         i and set the (i+1)-th node to the node at index i.
@@ -129,7 +124,6 @@ class LinkedList:
 
     def remove_last(self):
         """ 
-        Idea:
         If the list is empty, then return nothing. If the list only contains one item,
         then return the first item. Otherwise if the list is length n, then go to the 
         (n-1)-th node. Retrieve the item at the n-th node and set the n-th node to None.
@@ -158,17 +152,15 @@ class LinkedList:
 
     def get(self, index=0):
         """
-        Driver for the recursive method.
+        Driver for the recursive function.
         """
         return self._get(index, 0, self.head)
     
 
     def _get(self, index, current_index, current_node):
         """
-        Finds the item at the specified index. 
-
-        Idea:
-        Simply perform linear search on the list.
+        Finds the item at the specified index. This is done
+        by simply performing linear search on the list.
         """
         if current_node is None:
             return None
@@ -188,8 +180,6 @@ class LinkedList:
     def _find(self, target, current_index, current_node):
         """ 
         Finds the first occurance of the specified item. 
-
-        Idea: 
         Simply perform linear search on the list.
         """
         if current_node is None:
