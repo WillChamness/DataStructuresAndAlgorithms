@@ -19,6 +19,7 @@ This repo is not for those who are new to DSAAs. There are many other resources 
 - Singly & Doubly Linked List
 - Hash table
 - Binary Search Tree
+- AVL tree
 
 ## Completed Searching Algorithms:
 - Linear Search
@@ -31,4 +32,11 @@ This repo is not for those who are new to DSAAs. There are many other resources 
 - Tree Sort
 
 ## Currently working on:
-- AVL tree
+- Heap
+- Minor additions to existing data structures
+
+## Todo:
+- HeapSort
+- MergeSort
+- QuickSort
+- Graphs
