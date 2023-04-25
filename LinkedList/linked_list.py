@@ -63,7 +63,7 @@ class LinkedList:
                 current_node = current_node.next
 
         if current_node.next is None: # i-th index is the end, so just add a new node
-            current_node.next = self.LLNoe(item, None) 
+            current_node.next = self.LLNode(item, None) 
         else: # Set the i-th index to a new node and set the old node to the (i+1)-th index
             current_node.next = self.LLNode(item, current_node.next) 
 
@@ -203,6 +203,155 @@ class LinkedList:
             current_node = current_node.next
         
         return result
+    
+
+    @staticmethod
+    def reverse(linked_list, recursive=True):
+        if linked_list is None:
+            return
+        elif linked_list.head is None:
+            return
+        elif recursive:
+            old_head = linked_list.head
+            linked_list.head = LinkedList._reverse_rec(linked_list.head)
+            old_head.next = None
+        else:
+            linked_list.head = LinkedList._reverse(linked_list)
+    
+
+    @staticmethod
+    def _reverse(linked_list):
+        """
+        Part 1 of a technique used in many technical interview questions.
+
+        Use a two pointer technique with a temporary holder:
+        l represents the previous node
+        m represents the current node
+        r represents a temporary pointer to prevent data loss
+
+        Here is a traceback of the algorithm reversing 1 -> 2 -> 3 -> 4 -> null
+
+       dummy  head
+         |    |
+        -1 -> 1 -> 2 -> 3 -> 4 -> null
+         l    m    r
+
+        m not out of bound ==> {
+            m.next = l
+            increment l, m and r
+        }
+
+        -1 <-> 1    2 -> 3 -> 4 -> null
+               l    m    r     
+
+        m not out of bound ==> {
+            m.next = l
+            increment l, m and r
+        }    
+
+        -1 <-> 1 <- 2    3 -> 4 -> null
+                    l    m    r  
+
+        m not out of bound ==> {
+            m.next = l
+            increment l, m and r
+        } 
+        
+        -1 <-> 1 <- 2 <- 3    4 -> null
+                         l    m    r   
+
+        m not out of bound ==> {
+            m.next = l
+            increment l, m and r
+        } 
+
+       dummy  head
+         |     |
+        -1 <-> 1 <- 2 <- 3 <- 4    null
+                              l    m, r   
+        
+        m out of bounds ==> {
+            head.next = null
+            head = l (done in the driver function)
+            return
+        }
+
+       dummy                head
+         |                   |
+        -1 -> 1 <- 2 <- 3 <- 4    null
+                             l    m, r
+        """
+
+        head = linked_list.head
+        dummy = linked_list.LLNode(-1, head)
+
+        l, m, r = dummy, head, head.next
+
+        while m is not None:
+            m.next = l
+            l = m
+            m = r
+            r = r.next if r is not None else r
+        
+
+        head.next = None
+        return l
+
+
+    
+    @staticmethod
+    def _reverse_rec(node):
+        """
+        Part 2 of a technique used in many technical interview questions
+
+        Take advantage of the fact that linked lists are just special cases
+        of binary trees by using an algorithm in the style of post-order-traversal.
+
+        Here is a traceback of the algorithm reversing 1 -> 2 -> 3 -> 4 -> null:
+
+        1 -> 2 -> 3 -> 4 -> null
+        |
+        node
+
+        1 -> 2 -> 3 -> 4 -> null        stack: reverse 1
+             |
+            node
+
+        1 -> 2 -> 3 -> 4 -> null        stack: reverse 1, reverse 2
+                  |
+                 node
+
+
+        1 -> 2 -> 3 -> 4 -> null        stack: reverse 1, reverse 2, reverse 3
+                       |
+                      node
+
+                     new_head
+                        |
+        1 -> 2 -> 3 <-> 4    null        stack: reverse 1, reverse 2
+                  |
+                 node
+
+        1 -> 2 <-> 3 <- 4    null        stack: reverse 1
+             |
+            node
+
+        1 <-> 2 -> 3 -> 4    null        
+        |
+        node
+
+
+        Refer to the driver to see how to avoid the cycle.
+        """
+        if node.next is None:
+            return node
+        
+        new_head = LinkedList._reverse_rec(node.next)
+        node.next.next = node
+        return new_head
+        
+
+
 
 
 def main():
@@ -257,6 +406,17 @@ def main():
 
     l.clear(confirm=True)
     print("\nLL after clearing: " + str(l.to_list()))
+
+    l2 = LinkedList()
+    for n in [1, 2, 3, 4]:
+        l.add(n, n-1)
+        l2.add(n, n-1)
+    
+    print("\nLL before reversing: " + str(l.to_list()))
+    LinkedList.reverse(l)
+    print("LL after reversing recursively: " + str(l.to_list()))
+    LinkedList.reverse(l2, recursive=False)
+    print("LL after reversing iteratively: " + str(l2.to_list()))
 
 if __name__ == "__main__":
     main()
