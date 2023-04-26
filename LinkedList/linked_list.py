@@ -336,7 +336,9 @@ class LinkedList:
              |
             node
 
-        1 <-> 2 -> 3 -> 4    null        
+                     new_head
+                        |
+        1 <-> 2 <- 3 <- 4    null        
         |
         node
 
