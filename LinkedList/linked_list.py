@@ -207,6 +207,9 @@ class LinkedList:
 
     @staticmethod
     def reverse(linked_list, recursive=True):
+        """ 
+        Driver for reverse functions.
+        """
         if linked_list is None:
             return
         elif linked_list.head is None:
@@ -236,33 +239,33 @@ class LinkedList:
         -1 -> 1 -> 2 -> 3 -> 4 -> null
          l    m    r
 
-        m not out of bound ==> {
+        m not out of bounds ==> {
             m.next = l
-            increment l, m and r
+            increment l, m, and r
         }
 
         -1 <-> 1    2 -> 3 -> 4 -> null
                l    m    r     
 
-        m not out of bound ==> {
+        m not out of bounds ==> {
             m.next = l
-            increment l, m and r
+            increment l, m, and r
         }    
 
         -1 <-> 1 <- 2    3 -> 4 -> null
                     l    m    r  
 
-        m not out of bound ==> {
+        m not out of bounds ==> {
             m.next = l
-            increment l, m and r
+            increment l, m, and r
         } 
         
         -1 <-> 1 <- 2 <- 3    4 -> null
                          l    m    r   
 
-        m not out of bound ==> {
+        m not out of bounds ==> {
             m.next = l
-            increment l, m and r
+            increment l, m, and r
         } 
 
        dummy  head
@@ -279,7 +282,9 @@ class LinkedList:
        dummy                head
          |                   |
         -1 -> 1 <- 2 <- 3 <- 4    null
-                             l    m, r
+              |              l    m, r
+              v
+             null
         """
 
         head = linked_list.head
