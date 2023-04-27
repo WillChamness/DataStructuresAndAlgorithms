@@ -23,7 +23,7 @@ def shell_sort(li):
     Let gap == 8 // 2 == 4 (half the size of the list).
 
     To help visualize the next step, I will display the list as such:
-    [3, 4, 1, 7,
+    [3, 5, 1, 7,
      2, 6, 4, 0]
 
     Consider the sublists containing items with indeces 0 and 4, 
@@ -77,11 +77,19 @@ def shell_sort(li):
     Some variations of shell sort can reduce the worst case time complexity 
     below n^2 (see shell_sort_optimized.py). As a result, shell sort is *technically*
     an optimization to insertion sort. This variation, however, has the same time 
-    complexity as insertion sort, namely O(n^2). Furthermore, this variation has a 
-    higher cache miss rate. Consequently, this variation is actually worse than 
-    insertion sort despite the fact that they have the same time complexity.
+    complexity as insertion sort, namely O(n^2). 
+    
+    Furthermore, this variation has a higher cache miss rate. Consequently, 
+    this variation is actually worse than insertion sort despite the fact that 
+    they have the same time complexity. Of course, this is under the assumption 
+    that the cache is too small to contain a large amount of the inputs in the 
+    first place. In practice, this is often not the case. 
+    
+    See the "Insertion Sort vs Shell Sort" directory to see a time comparison
+    between the two on your hardware.
 
-    Compare to insertion sort to see similarities.
+    Or see this video to see a theoretical comparison of shell sort and insertion sort: 
+    https://youtu.be/g06hNBhoS1k
     """
 
     def swap(li, i1, i2):
