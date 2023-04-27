@@ -1,0 +1,2 @@
+Average insertion sort time: 10.42602054 seconds
+Average shell sort time: 0.36382052000000004 seconds
