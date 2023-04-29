@@ -276,6 +276,37 @@ class BST:
 
         return results
 
+    
+    @staticmethod
+    def invert(binary_search_tree):
+        """
+        Driver for recursive function.
+        """
+        if binary_search_tree is None:
+            return
+        else:
+            BST._invert(binary_search_tree.root)
+
+
+    @staticmethod
+    def _invert(node):
+        """
+        A technique for many technical interview questions. Use a 
+        post-order-traversal algorithm to invert.
+        """
+        if node is None:
+            return
+        
+        # process the children
+        BST._invert(node.left)
+        BST._invert(node.right)
+
+        # then process the current node
+        l = node.left
+        r = node.right
+
+        node.left = r
+        node.right = l
 
 
 def main():
@@ -318,6 +349,14 @@ def main():
         t.insert(n)
     t.remove(50) # has two children
     print("Removing 50 from before:", t.breadth_first_search())
+
+    t = BST()
+    for n in [100, 50, 200, 25, 75]:
+        t.insert(n)
+    print("BST before inverting:", t.breadth_first_search())
+    BST.invert(t)
+    print("BST after inverting:", t.breadth_first_search())
+
 
 
 if __name__ == "__main__":
