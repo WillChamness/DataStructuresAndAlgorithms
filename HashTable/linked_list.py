@@ -2,7 +2,7 @@ class LinkedList:
     class Node:
         def __init__(self, key, value, next):
             # store key along with value to check if key exists when adding/removing
-            self.key = str(key)
+            self.key = key
             self.value = value
             self.next = next
 
