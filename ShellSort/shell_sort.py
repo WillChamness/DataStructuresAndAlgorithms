@@ -5,9 +5,11 @@ def shell_sort(li):
     Time complexity: O(n^2)
     Space complexity: O(1)
 
+
     Idea: 
     Try to (somehow) get the lesser items closer to the left and the greater items
     closer the right before performing insertion sort. 
+
 
     Strategy:
     Let gap == m_1 > 0. Partition the list such that all items' indeces are congruent to each 
@@ -20,6 +22,7 @@ def shell_sort(li):
     Example:
     Given [3, 5, 1, 7, 2, 6, 4, 0]
 
+
     Let gap == 8 // 2 == 4 (half the size of the list).
 
     To help visualize the next step, I will display the list as such:
@@ -28,26 +31,32 @@ def shell_sort(li):
 
     Consider the sublists containing items with indeces 0 and 4, 
     1 and 5, 2 and 6, and 3 and 7: [3, 2], [5, 6], [1, 4], and [7, 0]
-    respectively. Perform insertion sort on each of these sublists:
+    respectively. 
+    
+    Perform insertion sort on each of these sublists:
     [2, 3], [5, 6], [1, 4], and [0, 7]. Take the first item of every
-    sublist from left to right: [3, 5, 1, 7]. Now append the second
-    item of the sublists from left to right: [3, 5, 1, 7, 2, 6, 4, 0].
+    sublist from left to right: [2, 5, 1, 0]. Now append the second
+    item of the sublists from left to right: [2, 5, 1, 0, 3, 6, 4, 7].
     Let this new list represent the original. Now let gap == 4 // 2 == 2.
 
+
     To help visualize the next step, I will display the list as such:
-    [3, 5,
-     1, 7,
-     2, 6,
-     4, 0]
+    [2, 5,
+     1, 0,
+     3, 6,
+     4, 7]
+
     Consider the sublists containing items with indices 0, 2, 4, 6
-    and 1, 3, 5, 7: [3, 1, 2, 4] and [5, 7, 6, 0] respectively. Perform 
+    and 1, 3, 5, 7: [2, 1, 3, 4] and [5, 0, 6, 7] respectively. Perform 
     insertion sort on each of these sublists: [1, 2, 3, 4] and [0, 5, 6, 7].
+
     Now take the first item of every sublist from left to right:
     [1, 0]. Now append the second item of the sublists from left to right:
     [1, 0, 2, 5]. Now append the third item of the sublists from left to 
     right: [1, 0, 2, 5, 3, 6]. Now append the fourth item of the sublists
-    from left to right: [1, 0, 2, 5, 3, 6]. Let this list represent the 
+    from left to right: [1, 0, 2, 5, 3, 6, 4, 7]. Let this list represent the 
     original. Now let gap == 2 // 2 == 1.
+
 
     Side note: 
     If gap == 1, then you are simply performing insertion sort on the entire list.
@@ -63,6 +72,7 @@ def shell_sort(li):
      6, 
      4, 
      7]. 
+
     Consider the sublist with indices 0, 1, 2, 3, 4, 5, 6, 7:
     [1, 0, 2, 5, 3, 6, 4, 7]. Perform insertion sort on this sublist:
     [0, 1, 2, 3, 4, 5, 6, 7]. Now take the first item of the sublist:
@@ -72,6 +82,7 @@ def shell_sort(li):
     represent the original. Now let gap == 1 // 2 == 0.
 
     gap < 1. Therefore the list is now sorted.
+
 
 
     Some variations of shell sort can reduce the worst case time complexity 
