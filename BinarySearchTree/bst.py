@@ -1,3 +1,6 @@
+from queue_list import QueueList
+import sys
+
 class BST:
     """ 
     A data structure in which each node contains three items: the data and two 
@@ -262,8 +265,6 @@ class BST:
         if self.root is None:
             return []
             
-        from queue_list import QueueList
-        import sys
         results = []
         q = QueueList(sys.maxsize)
         q.enqueue(self.root)
@@ -275,6 +276,35 @@ class BST:
             if parent.right is not None: q.enqueue(parent.right)
 
         return results
+    
+
+    def print_tree(self):
+        """
+        Driver for recursive function. 
+        """
+        self._print(self.root, 0)
+    
+
+    def _print(self, node, level):
+        """
+        Creates a representation of the tree. For example, given this tree:
+                            100
+                          /    \
+                        50      200
+                      /   \
+                    25    75
+
+        This function will print the following:
+                        -> 200
+                    -> 100
+                            -> 75
+                        -> 50
+                            -> 25
+        """
+        if node != None:
+            self._print(node.right, level + 1)
+            print(' ' * 4 * level + '-> ' + str(node.item))
+            self._print(node.left, level + 1)
 
     
     @staticmethod
@@ -353,9 +383,11 @@ def main():
     t = BST()
     for n in [100, 50, 200, 25, 75]:
         t.insert(n)
-    print("BST before inverting:", t.breadth_first_search())
+    print("BST before inverting:")
+    t.print_tree()
     BST.invert(t)
-    print("BST after inverting:", t.breadth_first_search())
+    print("BST after inverting:")
+    t.print_tree()
 
 
 
