@@ -30,6 +30,7 @@ This repo is not for those who are new to DSAAs. There are many other resources 
 - Insertion Sort
 - Bubble sort
 - Tree Sort
+- Shell Sort
 
 ## Currently working on:
 - Heap
