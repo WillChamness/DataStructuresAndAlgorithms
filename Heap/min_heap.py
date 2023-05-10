@@ -27,4 +27,13 @@ class MinHeap(Heap):
         swap(self.heap, index, self._parent_index(index))
         self._percolate_up(self._parent_index(index))
        
-       
+
+    def remove_min(self):
+        if self.is_empty():
+            raise Exception("MinHeap is empty.")
+
+        item = self.heap[0]
+        self.heap[0] = self.heap[self._next_empty_slot() - 1]
+        self.size -= 1
+        self._percolate_down(0)
+        return item 
