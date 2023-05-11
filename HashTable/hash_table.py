@@ -2,7 +2,7 @@ from linked_list import LinkedList
 
 class HashTable:
     """ 
-    A.K.A. dictionaries in Python.
+    A.K.A. dictionary in Python or HashMap in many other languages.
 
     Simple implementation of a hash table. Uses chaining to deal with collisions.
     
@@ -28,20 +28,31 @@ class HashTable:
 
     def hash(self, key):
         """ 
-        Simple hashing function. Takes a string and returns the total unicode value of each character
+        Simple hashing function. Takes a string and returns sum of all the unicode values of each character
         mod the table size. Note that this implementation is far from optimal.
+
+        Example:
+        Given "abz" with a table t of length 10.
+
+        ord(a) == 97,
+        ord(b) == 98,
+        ord(z) == 122.
+
+        (97 + 98 + 122) % 10 == 7
+
+        Then, a value with a key of "abz" would exist at t[7]
+        
 
         For this implementation,
         Time complexity: O(k), where k == len(key)
         Space complexity: O(k) since a conversion to string takes place 
         """
-        result = 0
+        sum = 0
         s = str(key)
         for c in s:
-            result = result + ord(c)
-        result %= self.size
+            sum += ord(c)
 
-        return result
+        return sum % self.size
 
 
     def add(self, key, value):
