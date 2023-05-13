@@ -37,3 +37,15 @@ class MinHeap(Heap):
         self.size -= 1
         self._percolate_down(0)
         return item 
+
+
+    def _percolate_down(self, index):
+        def swap(li, i1, i2):
+            temp = li[i1]
+            li[i1] = li[i2]
+            li[i2] = temp
+        def min(li, i1, i2):
+            if li[i1] < li[i2]:
+                return i1
+            else:
+                return i2
