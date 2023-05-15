@@ -49,3 +49,21 @@ class MinHeap(Heap):
                 return i1
             else:
                 return i2
+
+        if not self._has_left_child(index): # heap is inserted from left to right, so if there is no left child, the node must be a leaf
+            return
+        if not self._has_right_child(index): # node is parent of left leaf node only
+            if index != min(self.heap, index, self._left_child_index(index)): # left child is smaller than parent
+                swap(self.heap, index, self._left_child_index(index)) 
+            return
+        # otherwise the hole has two children
+
+        # minimum of parent and two children
+        min_index = min(self.heap, index, min(self.heap, self._left_child_index(index), 
+            self._right_child_index(index)))
+        if min_index == self._left_child_index(index): # case where left child is smallest
+            swap(self.heap, index, self._left_child_index(index))
+            self._percolate_down(self._left_child_index(index))
+        elif min_index == self._right_child_index(index): # case where right child is smallest
+            swap(self.heap, index, self._right_child_index(index))
+            self._percolate_down(self._right_child_index(index))
