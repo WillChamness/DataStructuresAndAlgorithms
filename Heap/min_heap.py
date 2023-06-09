@@ -1,5 +1,6 @@
 from heap import Heap
 
+
 class MinHeap(Heap):
     def __init__(self, capacity=10, initial_heap=None):
         Heap.__init__(self, capacity, initial_heap)
@@ -87,3 +88,38 @@ class MinHeap(Heap):
             percolate_up(li, n)
         
         return li
+
+
+def main():
+    import random as r
+    h = MinHeap()
+    l = []
+    for i in range(10): 
+        l.append(r.randint(0, 100))
+
+    print(f"Before: {l}")
+    for item in l: 
+        h.insert(item)
+    l = []
+
+    while not h.is_empty(): 
+        l.append(h.remove_min())
+    print(f"After: {l}")
+
+    l = []
+    for i in range(11): 
+        l.append(r.randint(0, 100))
+
+    print(f"\nBefore: {l}")
+    h = MinHeap(len(l), MinHeap.heapify(l))
+    l = []
+    while not h.is_empty(): 
+        l.append(h.remove_min())
+    print(f"After: {l}")
+
+    print("\nThis will cause an exception: ")
+    h.remove_min()
+
+
+if __name__ == "__main__":
+    main()
