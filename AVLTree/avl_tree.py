@@ -247,6 +247,18 @@ class AVLTree:
         return results
 
 
+    def print_tree(self):
+        self._print(self.root, 0)
+    
+
+    def _print(self, node, level):
+        if node != None:
+            self._print(node.right, level + 1)
+            print(' ' * 4 * level + '-> ' + str(node.item))
+            self._print(node.left, level + 1)
+
+
+
 def main():
     import random as rd 
     l = []
@@ -256,7 +268,8 @@ def main():
     print("Before:", l)
     for num in l:
         t.insert(num) # reminder: tree does not allow duplicates
-        print("Current order of tree:", t.breadth_first_search())
+        print("Current order of tree:")
+        t.print_tree()
 
     t.insert(100)
     print(t.breadth_first_search())
@@ -266,24 +279,28 @@ def main():
     t = AVLTree()
     for n in [100, 50, 200, 25, 75, 150]: # is an AVL Tree
         t.insert(n)
-    print("Tree before:", t.breadth_first_search())
+    print("Tree before:")
+    t.print_tree()
 
     t.remove(100) # has two children
 
-    print("After removing 100:", t.breadth_first_search())
+    print("After removing 100:")
+    t.print_tree()
 
     t = AVLTree()
     for n in [100, 50, 200, 25, 75, 150]: 
         t.insert(n)
     
     t.remove(200) # has one child
-    print("After removing 200:", t.breadth_first_search())
+    print("After removing 200:")
+    t.print_tree()
 
     t = AVLTree()
     for n in [100, 50, 200, 25, 75, 150]: 
         t.insert(n)
     t.remove(150) # has no children
-    print("After removing 150:", t.breadth_first_search())
+    print("After removing 150:")
+    t.print_tree()
 
 
 if __name__ == "__main__":
