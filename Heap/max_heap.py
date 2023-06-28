@@ -67,3 +67,54 @@ class MaxHeap(Heap):
         elif max_index == self._right_child_index(index):
             swap(self.heap, index, self._right_child_index(index))
             self._percolate_down(self._right_child_index(index))
+
+    
+    @staticmethod
+    def heapify(li):
+        def swap(li, i1, i2):
+            temp = li[i1]
+            li[i1] = li[i2]
+            li[i2] = temp
+        def percolate_up(li, index):
+            parent_index = (index - 1) // 2
+
+            if parent_index < 0: return
+            if li[index] < li[parent_index]: return
+            swap(li, index, parent_index)
+            percolate_up(li, parent_index)
+        
+        for n in range(len(li)):
+            percolate_up(li, n)
+        
+        return li
+
+
+
+def main():
+    import random as r
+    h = MaxHeap()
+    l = []
+    for i in range(10): l.append(r.randint(0, 100))
+    print(f"Before: {l}")
+    for item in l: 
+        h.insert(item)
+    l = []
+    while not h.is_empty(): l.append(h.remove_max())
+    print(f"After: {l}")
+
+    l = []
+    for i in range(11): l.append(r.randint(0, 100))
+    print(f"\nBefore: {l}")
+    h = MaxHeap(len(l), MaxHeap.heapify(l))
+    l = []
+    while not h.is_empty(): l.append(h.remove_max())
+    print(f"After: {l}")
+
+    print("\nThis will cause an exception: ")
+    h = MaxHeap()
+    for i in range(21):
+        h.insert(i)
+
+
+if __name__ == "__main__":
+    main()
