@@ -20,6 +20,7 @@ This repo is not for those who are new to DSAAs. There are many other resources 
 - Hash table
 - Binary Search Tree
 - AVL tree
+- Heap
 
 ## Completed Searching Algorithms:
 - Linear Search
@@ -33,7 +34,7 @@ This repo is not for those who are new to DSAAs. There are many other resources 
 - Shell Sort
 
 ## Currently working on:
-- Heap
+- Heap Sort
 - Minor additions to existing data structures
 
 ## Todo:
