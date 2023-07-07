@@ -32,13 +32,13 @@ This repo is not for those who are new to DSAAs. There are many other resources 
 - Bubble sort
 - Tree Sort
 - Shell Sort
+- Heap Sort
 
 ## Currently working on:
-- Heap Sort
+- Merge Sort
 - Minor additions to existing data structures
 
 ## Todo:
-- HeapSort
 - MergeSort
 - QuickSort
 - Graphs
