@@ -14,3 +14,31 @@ def merge_sort(li):
     merge_sort(left_sublist)
     merge_sort(right_sublist)
     _merge(li, left_sublist, right_sublist)
+
+
+def _merge(li, left_sublist, right_sublist):
+    left_pointer = 0
+    right_pointer = 0
+    list_pointer = 0
+
+    while left_pointer < len(left_sublist) and right_pointer < len(right_sublist):
+        left_num = left_sublist[left_pointer]
+        right_num = right_sublist[right_pointer]
+
+        if left_num < right_num:
+            li[list_pointer] = left_num
+            left_pointer += 1
+        else:
+            li[list_pointer] = right_num
+            right_pointer += 1
+        list_pointer += 1
+    
+    while left_pointer < len(left_sublist):
+        li[list_pointer] = left_sublist[left_pointer]
+        left_pointer += 1
+        list_pointer += 1
+
+    while right_pointer < len(right_sublist):
+        li[list_pointer] = right_sublist[right_pointer]
+        right_pointer += 1
+        list_pointer += 1
