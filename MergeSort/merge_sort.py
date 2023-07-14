@@ -42,3 +42,27 @@ def _merge(li, left_sublist, right_sublist):
         li[list_pointer] = right_sublist[right_pointer]
         right_pointer += 1
         list_pointer += 1
+
+
+
+def main():
+    import random as r 
+    l = []
+
+    for i in range(10):
+        l.append(r.randint(0, 100))
+
+    print(f"Before: {l}")
+    merge_sort(l)
+    print(f"After: {l}")
+
+    l = []
+    for i in range(11):
+        l.append(r.randint(0, 100))
+    print(f"\nBefore: {l}")
+    merge_sort(l)
+    print(f"After: {l}")
+
+
+if __name__ == "__main__":
+    main()
