@@ -39,6 +39,7 @@ This repo is not for those who are new to DSAAs. There are many other resources 
 - Minor additions to existing data structures
 
 ## Todo:
+- ArrayList
 - MergeSort
 - QuickSort
 - Graphs
