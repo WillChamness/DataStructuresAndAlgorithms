@@ -1,4 +1,12 @@
 def merge_sort(li):
+    """ 
+    Time complexity: O(n*log(n))
+    Space complexity: O(n)
+
+    You can do an in-place sort to reduce the space complexity to O(1), but the 
+    time complexity gets increased to O(n^2*log(n)). At that point, you should
+    use insertion sort instead.
+    """
     if len(li) <= 1: 
         return
     
