@@ -6,6 +6,38 @@ def merge_sort(li):
     You can do an in-place sort to reduce the space complexity to O(1), but the 
     time complexity gets increased to O(n^2*log(n)). At that point, you should
     use insertion sort instead.
+
+    Idea:
+    Split the array into halves until you can't divide them anymore. Then 
+    somehow merge the left and right subarrays such that the result is a 
+    sorted array
+
+    Example:
+    Given [3, 2, 1, 4, 0]
+
+    Split the array into two:
+    [3, 2], [1, 4, 0]
+
+    Split the left subarray into two:
+    [[3], [2]]        [1, 4, 0]
+
+    The two subarrays are trivially sorted. Therefore, merge the two:
+    [2, 3]              [1, 4, 0]
+
+    Split the right subarray into two:
+    [2, 3]              [[1, 4], [0]]
+
+    Split the right left subarray into two:
+    [2, 3]              [ [[1], [4]], [0] ]
+
+    The subarrays are trivially sorted. Therefore, merge the two:
+    [2, 3]              [[1, 4], [0]]
+
+    The subarrays are sorted. Therefore, merge the two:
+    [2, 3]              [0, 1, 4]
+
+    The subarrays are sorted. Therefore, merge the two:
+    [0, 1, 2, 3, 4]
     """
     if len(li) <= 1: 
         return
