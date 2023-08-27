@@ -39,16 +39,27 @@ def merge_sort(li):
     The subarrays are sorted. Therefore, merge the two:
     [0, 1, 2, 3, 4]
     """
-    if len(li) <= 1: 
+    if len(li) <= 1: # list has at most 1 element and is trivially sorted
         return
     
-    left_sublist = [None] * (len(li) // 2) 
-    right_sublist = [None] * (len(li) - len(left_sublist)) 
+    left_sublist = [None] * (len(li) // 2) # e.g. if n == 5, then left_sublist represents the first two items
+    right_sublist = [None] * (len(li) - len(left_sublist)) # represents whatever isn't in left_sublist
 
+    # copy left half into left sublist
     for i in range(0, len(left_sublist)):
+        # e.g. len(li) == 5 ==> len(left_sublist) == 5 div 2 == 2, so
+        # i == 0 ==> left_sublist[0] = li[0]
+        # i == 1 ==> left_sublist[1] = li[1]
+        # i == 2 ==> you are in the right sublist so stop
         left_sublist[i] = li[i]
 
+    # copy right half into right sublist
     for i in range(len(left_sublist), len(li)):
+        # e.g. len(li) == 5 ==> len(right_sublist) == 5 - 2 == 3, so
+        # i == 2 ==> right_sublist[2 - 2] = li[2] 
+        # i == 3 ==> right_sublist[3 - 2] = li[3] 
+        # i == 4 ==> right_sublist[4 - 2] = li[4] 
+        # i == 5 ==> you are done
         right_sublist[i - len(left_sublist)] = li[i] 
 
     merge_sort(left_sublist)
