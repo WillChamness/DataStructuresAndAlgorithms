@@ -8,13 +8,7 @@ def linear_search(li, target, recursive=True):
     Search the list one-by-one until you find the target. Unlike binary
     search, linear search does not require the list to be sorted.
 
-    Strategy:
-    Starting at index 0, compare the item to the target. If they are equal,
-    the target has been found. Otherwise, check the next item in the list.
-    Continue until either the target has been found or you have reached
-    the end of the list.
-
-
+    
     Example:
     Given [2, 4, 0, 3, 1]. Search for the number 3.
 

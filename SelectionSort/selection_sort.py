@@ -8,10 +8,6 @@ def selection_sort(li):
     Swap the first item with the smallest item, then swap the second item with the second
     smallest item, then swap the third item with the third smallest item, etc.
 
-    Strategy:
-    For every item at index i, check all items to the right for the smallest item. Then swap
-    the two. Repeat this process for index i + 1 until you have reached the end of the list.
-
     Example: 
     Given [3, 2, 1, 4, 0].
 

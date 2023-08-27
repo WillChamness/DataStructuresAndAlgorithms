@@ -9,11 +9,6 @@ def insertion_sort(li):
     (or to the first position). Then do the same with the item after. This process
     is similar to how you would sort a deck of cards.
 
-    Strategy:
-    For every item in the list, compare to the item before it (if possible).
-    If the item is less than the previous one, swap the two. Continue this process
-    until the item is either the first in the list or greater than or equal to the previous.
-
 
     Example:
     Given [3, 1, 2, 4, 0].

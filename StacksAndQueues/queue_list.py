@@ -10,7 +10,6 @@ class QueueList:
     First in, first out (FIFO). The first element in is the first 
     element out. 
 
-    Strategy: 
     Keep a pointer to the next available slot, and keep a pointer 
     to the next item to be released. Note that tail can be less than
     head when, for example, tail reaches the end and index 0 is open. 

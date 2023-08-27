@@ -11,14 +11,6 @@ def shell_sort(li):
     closer the right before performing insertion sort. 
 
 
-    Strategy:
-    Let gap == m_1 > 0. Partition the list such that all items' indeces are congruent to each 
-    other (mod m_1). Then perform insertion sort on the sublists. Put the items into the 
-    original list in order such that the set of their new indeces is still the same as the set
-    of their indeces before partitioning them. Then perform this process for gap == m_(k+1) < m_k 
-    for some integer k. Stop if gap < 1.
-
-
     Example:
     Given [3, 5, 1, 7, 2, 6, 4, 0]
 

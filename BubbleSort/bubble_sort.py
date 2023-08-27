@@ -5,11 +5,7 @@ def bubble_sort(li, recursive=True):
     continuously swapping the current item with the next if the
     current item is greater.
 
-    Strategy:
-    Compare the item at index i to the item at index i+1. If the 
-    item at index i is larger, swap. Then continue the process for
-    item i+1. Repeat this strategy n times.
-
+    
     Example:
     Given [3, 1, 4, 2, 0].
 

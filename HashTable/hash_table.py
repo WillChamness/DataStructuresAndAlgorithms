@@ -6,7 +6,7 @@ class HashTable:
 
     Simple implementation of a hash table. Uses chaining to deal with collisions.
     
-    Strategy: 
+    Idea: 
     Take a string and convert it to a number. Use this number to represent the index of
     a list. Add/remove/modify a value at that index. 
 

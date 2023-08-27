@@ -7,12 +7,12 @@ class Stack:
     Time complexity of searching: O(n).
     Time complexity of inserting/removing: O(1).
 
-    Strategy: 
     Last in, first out (LIFO). The last element to be inserted
     is the first one out. Keep a pointer to where the top of the stack
     currently is. Increase the pointer when an object is inserted (pushed)
     into the stack, and decrease it when an object is released (popped)
     from the stack.
+
 
     You can also use a linked list to represent a stack, where the top of 
     the stack is represented by the head of the LL.
