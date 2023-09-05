@@ -68,6 +68,50 @@ def merge_sort(li):
 
 
 def _merge(li, left_sublist, right_sublist):
+    """
+    Merges two sorted arrays such that the result is another sorted array.
+
+    Example:
+    Given [_, _, _, _, _, _], [1, 4, 5], and [0, 2, 3]
+
+    Initialize pointers like so:
+    [1, 4, 5]       [0, 2, 3]
+     |               |
+     l               r
+
+    0 < 1, so put 0 into the temporary array and increment r:
+    [0, _, _, _, _, _]
+    [1, 4, 5]       [0, 2, 3]
+     |                  |
+     l                  r          
+    
+    1 < 3, so put 1 into the temporary array and increment l
+    [0, 1, _, _, _, _]
+    [1, 4, 5]        [0, 2, 3]
+        |                |
+        l                r
+    
+    2 < 4, so put 2 into the temporary array and increment r
+    [0, 1, 2, _, _, _]
+    [1, 4, 5]        [0, 2, 3]
+        |                   |
+        l                   r
+
+    3 < 4, so put 3 into the temporary array and increment r
+    [0, 1, 2, 3, _, _]
+    [1, 4, 5]        [0, 2, 3]
+        |                       |
+        l                       r
+
+    r out of bounds, so copy the rest of the left subarray into the temporary array
+    [0, 1, 2, 3, 4, 5]
+
+
+
+    Note that for this implementation, the original list is treated as the temporary array since
+    the results will have to be copied into it anyways.
+    """
+ 
     left_pointer = 0
     right_pointer = 0
     list_pointer = 0
