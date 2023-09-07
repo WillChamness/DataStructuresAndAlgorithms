@@ -116,6 +116,7 @@ def _merge(li, left_sublist, right_sublist):
     right_pointer = 0
     list_pointer = 0
 
+    # get the min value of both sublists and append it to the original list
     while left_pointer < len(left_sublist) and right_pointer < len(right_sublist):
         left_num = left_sublist[left_pointer]
         right_num = right_sublist[right_pointer]
@@ -128,11 +129,13 @@ def _merge(li, left_sublist, right_sublist):
             right_pointer += 1
         list_pointer += 1
     
+    # if there are still some elements in the left sublist, just copy them to the list since the sublist is sorted anyways
     while left_pointer < len(left_sublist):
         li[list_pointer] = left_sublist[left_pointer]
         left_pointer += 1
         list_pointer += 1
 
+    # if there are still some elements in the right sublist, just copy them to the list since the sublist is sorted anyways
     while right_pointer < len(right_sublist):
         li[list_pointer] = right_sublist[right_pointer]
         right_pointer += 1
