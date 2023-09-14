@@ -6,3 +6,12 @@ class ArrayList:
 
         if initial_item is not None:
             self.add(initial_item)
+
+
+    def add(self, item):
+        if self.pointer >= self.size:
+            self.resize(2)
+        
+        self.array[self.pointer] = item
+        self.pointer += 1
+ 
