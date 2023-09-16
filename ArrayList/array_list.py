@@ -15,3 +15,13 @@ class ArrayList:
         self.array[self.pointer] = item
         self.pointer += 1
  
+
+    def remove(self, index):
+        if index >= self.pointer:
+            return None
+        if index < 0:
+            return None
+        
+        current = index
+        item = self.array[index]
+
