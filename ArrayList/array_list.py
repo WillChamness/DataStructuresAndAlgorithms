@@ -25,3 +25,10 @@ class ArrayList:
         current = index
         item = self.array[index]
 
+
+    def remove_last(self):
+        if self.pointer <= 0:
+            return None
+        
+        self.pointer -= 1
+        return self.array[self.pointer]
