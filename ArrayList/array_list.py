@@ -32,3 +32,9 @@ class ArrayList:
         
         self.pointer -= 1
         return self.array[self.pointer]
+
+
+    def _swap(self, li, i, j):
+        tmp = li[i]
+        li[i] = li[j]
+        li[j] = tmp
