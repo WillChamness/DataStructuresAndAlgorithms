@@ -38,3 +38,13 @@ class ArrayList:
         tmp = li[i]
         li[i] = li[j]
         li[j] = tmp
+
+
+    def resize(self, factor):
+        self.size *= factor
+        new_array = [None] * self.size
+
+        for i in range(self.pointer):
+            new_array[i] = self.array[i]
+        
+        self.array = new_array
