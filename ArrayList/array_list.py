@@ -48,3 +48,11 @@ class ArrayList:
             new_array[i] = self.array[i]
         
         self.array = new_array
+
+
+    def get(self, index):
+        return self.array[index]
+    
+
+    def find(self, target):
+        return linear_search(self.array, target, self.pointer)
