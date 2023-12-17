@@ -56,3 +56,24 @@ class ArrayList:
 
     def find(self, target):
         return linear_search(self.array, target, self.pointer)
+
+
+    def __str__(self):
+        s = "["
+        for i, item in enumerate(self.array):
+            if i <= self.pointer - 1:
+                s += str(item) + ", "
+            else:
+                s += "_, "
+        return s[:len(s) - 2] + "]"
+    
+
+    def __repr__(self):
+        s = "["
+        for i, item in enumerate(self.array):
+            if i == self.pointer - 1:
+                s += "***" + str(item) + "***, "
+            else:
+                s += str(item) + ", "
+                
+        return s[:len(s) - 2] + "]"
