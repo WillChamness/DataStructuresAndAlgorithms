@@ -77,3 +77,37 @@ class ArrayList:
                 s += str(item) + ", "
                 
         return s[:len(s) - 2] + "]"
+
+
+def main():
+    import random as rd
+    lst = ArrayList()
+
+    print("Adding 11 items:")
+    for _ in range(10):
+        lst.add(rd.randint(0, 99))
+    print(lst)
+    lst.add(-1)
+    print(lst)
+
+    print("\nRemoving items:")
+    print("5th item in list:", lst.remove(5))
+    print("last item in list:", lst.remove_last())
+    print(repr(lst))
+    print(lst)
+
+    print("\nOverwriting data marked deleted:")
+    lst.add(1000)
+    lst.add(1001)
+    lst.add(1002)
+    print(repr(lst))
+
+    print("\nSearching for items:")
+    print("Index of value 1000:", lst.find(1000))
+    print("Index of value 5000:", lst.find(5000))
+    lst.remove_last()
+    print("Index of a value marked deleted:", lst.find(1002))
+
+
+if __name__ == "__main__":
+    main()
