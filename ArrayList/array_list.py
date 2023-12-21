@@ -1,3 +1,5 @@
+from linear_search import linear_search
+
 class ArrayList:
     def __init__(self, initial_size=10, initial_item=None):
         self.size = initial_size
