@@ -99,8 +99,8 @@ def main():
     print("\nRemoving items:")
     print("5th item in list:", lst.remove(5))
     print("last item in list:", lst.remove_last())
-    print(repr(lst))
     print(lst)
+    print(repr(lst))
 
     print("\nOverwriting data marked deleted:")
     lst.add(1000)
