@@ -1,7 +1,7 @@
 # Data Structures and Algorithms in Python
 
 This repo contains the code of various data structures and algorithms along with explanations of each. 
-Written in Python, the DSAAs are written from scatch with as little help as possible from
+Written in Python, the DSAAs are written from scratch with as little help as possible from
 built-in modules. 
 
 ## Why this repo exists
