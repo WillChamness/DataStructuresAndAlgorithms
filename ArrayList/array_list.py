@@ -23,9 +23,13 @@ class ArrayList:
             return None
         if index < 0:
             return None
-        
-        current = index
-        item = self.array[index]
+
+        # put the item "out of bounds" by swapping with the last item.
+        # if you want to maintain the original order of the list, 
+        # you can push the item to the end by iteratively swapping
+        # adjacent items, but this increases time complexity
+        self._swap(self.array, index, self.pointer - 1)
+        return self.remove_last()
 
 
     def remove_last(self):
@@ -107,7 +111,7 @@ def main():
     print("\nSearching for items:")
     print("Index of value 1000:", lst.find(1000))
     print("Index of value 5000:", lst.find(5000))
-    lst.remove_last()
+    lst.remove(lst.find(1002))
     print("Index of a value marked deleted:", lst.find(1002))
 
 
