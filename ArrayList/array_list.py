@@ -11,6 +11,17 @@ class ArrayList:
 
 
     def add(self, item):
+        """
+        Simply add the item to the end of the list.
+
+        If the array is full, then create a new array and copy the
+        old array to the new array.
+
+        Worst-case time complexity: O(n)
+        Average time complexity: O(1)
+        Worst-case space complexity: O(n)
+        Average space complexity: O(1)
+        """
         if self.pointer >= self.size:
             self.resize(2)
         
