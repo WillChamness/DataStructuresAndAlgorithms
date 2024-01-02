@@ -50,6 +50,12 @@ class ArrayList:
 
 
     def remove_last(self):
+        """
+        Simply update the pointer to indicate that the last value is deleted.
+
+        Time complexity: O(1)
+        Space complexity: O(1)
+        """
         if self.pointer <= 0:
             return None
         
@@ -58,6 +64,9 @@ class ArrayList:
 
 
     def _swap(self, li, i, j):
+        """
+        Helper to swap two values
+        """
         tmp = li[i]
         li[i] = li[j]
         li[j] = tmp
