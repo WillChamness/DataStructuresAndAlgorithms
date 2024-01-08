@@ -73,6 +73,12 @@ class ArrayList:
 
 
     def resize(self, factor):
+        """
+        Copies the array into a new array.
+
+        Time complexity: O(n)
+        Space complexity: O(n)
+        """
         self.size *= factor
         new_array = [None] * self.size
 
