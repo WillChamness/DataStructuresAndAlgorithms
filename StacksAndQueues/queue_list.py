@@ -48,7 +48,7 @@ class QueueList:
         self.tail = 0 # points to the next available empty slot
         self.counter = 0 # represents the total number of items in the queue
         self.size = abs(size)
-        self.q = [None] * self.size
+        self.q = [None] * self.size # fixed-size array
 
         if first_item is not None:
             self.enqueue(first_item)

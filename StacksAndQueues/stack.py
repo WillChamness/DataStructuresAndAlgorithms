@@ -39,7 +39,7 @@ class Stack:
     def __init__(self, size=10, first_item=None):
         self.top = 0 # represents the first empty slot in the list
         self.size = abs(size) # do not allow negative sizes
-        self.s = [None] * self.size
+        self.s = [None] * self.size # fixed-size array
         if first_item is not None:
             self.s.push(first_item)
 
