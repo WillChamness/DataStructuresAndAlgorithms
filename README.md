@@ -17,10 +17,12 @@ This repo is not for those who are new to DSAAs. There are many other resources 
 - Stack
 - Queue
 - Singly & Doubly Linked List
+- ArrayList
 - Hash table
 - Binary Search Tree
 - AVL tree
 - Heap
+- Graph
 
 ## Completed Searching Algorithms:
 - Linear Search
@@ -34,11 +36,4 @@ This repo is not for those who are new to DSAAs. There are many other resources 
 - Shell Sort
 - Heap Sort
 - Merge Sort
-
-## Currently working on:
-- ArrayList
-- Minor additions to existing data structures
-
-## Todo:
-- QuickSort
-- Graphs
+- Quick Sort
