@@ -90,7 +90,10 @@ class ArrayList:
 
     def get(self, index):
         return self.array[index]
-    
+
+    def __getitem__(self, index):
+        return self.get(index)
+
 
     def find(self, target):
         return linear_search(self.array, target, self.pointer)
@@ -127,6 +130,8 @@ def main():
     print(lst)
     lst.add(-1)
     print(lst)
+
+    print("\nFirst item in the list:", lst[0])
 
     print("\nRemoving items:")
     print("5th item in list:", lst.remove(5))
